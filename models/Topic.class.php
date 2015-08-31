@@ -47,15 +47,4 @@ class Topic{
 		$this->date = time();
 	}
 
-	public function setIdAuteur($id_auteur)
-	{
-		$this->id_auteur = $id_auteur;
-	}
-
-	public function setIdCategory($id_auteur)
-	{
-		$this->id_auteur = $id_auteur;
-	}
-
-	
 ?>
