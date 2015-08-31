@@ -29,7 +29,7 @@ class Tchat
 	//SETTER
 	public function setMessage($message)
 	{
-		if (strlen($message) < 1)
+		if (strlen($message) > 1)
 			$this->message = $message;
 		else
 			throw new Exception('Aucun message saisie');
