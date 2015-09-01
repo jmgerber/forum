@@ -1,4 +1,5 @@
 <?php
+require('models/User.class.php');
 class UserManager
 {
 	private $link; 
@@ -8,12 +9,12 @@ class UserManager
 		$this->link = $link;
 	}
 
-	public function create($login, $email, $password, $url)
+	public function create($login, $email, $avatar, $statut)
 	{
 		$user = new User($this->link);
 		$user->setLogin($login);
 		$user->setEmail($email);
-		$user->setAvatar($url);
+		$user->setAvatar($avatar);
 		$user->setStatut($statut);
 		$login = mysqli_real_escape_string($this->link, $user->getLogin());
 		$email = mysqli_real_escape_string($this->link, $user->getEmail());
@@ -27,21 +28,34 @@ class UserManager
 			throw new Exception("Internal server error");
 	}
 
-	public function delete()
+	public function delete($id)
 	{
-
+		$request = "DELETE FROM user WHERE id ='".intval($id)."'";
+		mysqli_query($this->link, $request);
 	}
 
-	public function update()
+	public function update($user)
 	{
-
+		$login = mysqli_real_escape_string($this->link, $user->getLogin());
+		$email = mysqli_real_escape_string($this->link, $user->getEmail());
+		$avatar = mysqli_real_escape_string($this->link, $user->getAvatar());
+		$statut = mysqli_real_escape_string($this->link, $user->getStatut());
+		$request = "UPDATE user SET
+		 	login = '".$login."',
+			email = '".$email."',
+			avatar = '".$avatar."',
+			statut = '".$statut."'
+			WHERE id ='".$user->getId()."'";
+		mysqli_query($this->link, $request);
 	}
 
-	public function select()
+	public function select($id)
 	{
-
+		$request = "SELECT * FROM user WHERE id = '".intval($id)."'";
+		$res = mysqli_query($this->link, $request);
+		$categorie = mysqli_fetch_object($res, 'User', array($this->link));
+		return $categorie;
 	}
-
 	public function selectAll()
 	{
 		$request = "SELECT * FROM user";

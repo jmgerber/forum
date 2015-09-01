@@ -3,6 +3,7 @@ require('models/Categorie.class.php');
 class CategorieManager
 {
 	private $link;
+	
 	public function __construct($link)
 	{
 		$this->link = $link;

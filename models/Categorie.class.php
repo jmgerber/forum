@@ -53,7 +53,7 @@ class Categorie
 	}
 	public function delete($id)
 	{
-		$request = "DELETE FROM topics WHERE id_category='".$this->id."'";0
+		$request = "DELETE FROM topics WHERE id_category='".$this->id."'";
 		mysqli_query($this->link, $request);
 	}
 	public function update($topics)
@@ -74,10 +74,11 @@ class Categorie
 		$request = "SELECT * FROM topics WHERE id_category='".$this->id."'";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
-		while ($topics = mysqli_fetch_category($res, 'topics', array($this->link))
+		while($topics = mysqli_fetch_category($res, 'topics', array($this->link)))
 		{
 			$resultat[] = $topics;
 		}	
 		return $resultat;
+	}
 }
 ?>
