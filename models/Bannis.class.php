@@ -21,7 +21,6 @@ class Bannis
 	}
 
 	//SETTER
-
 	public function setStatut($statut)
 	{
 		if ($statut != 1)
