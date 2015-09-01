@@ -4,7 +4,7 @@ $error= "";
 $success = "";
 
 //Connexion à la base de données
-$link = @mysqli_connect("localhost" ,"root", "troiswa", "grosbill");
+$link = @mysqli_connect("localhost" ,"root", "troiswa", "forum-viandes");
 
 if (!$link)
 {
