@@ -34,10 +34,6 @@ class Tchat
 		else
 			throw new Exception('Aucun message saisi');
 	}
-	public function setDate()
-	{
-		$this->date = time();
-	}
 }
 
 ?>
