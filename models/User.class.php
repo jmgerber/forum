@@ -8,6 +8,12 @@ class User
 	private $password;
 	private $avatar;
 	private $statut;
+	private $link;
+
+	public function  __construct($link)
+	{
+		$this->link = $link;
+	}
 
 	//Méthodes
 	//GETTER
@@ -22,6 +28,10 @@ class User
 	public function getEmail()
 	{
 		return $this->email;
+	}
+	public function getPassword()
+	{
+		return $this->password;
 	}
 	public function getAvatar()
 	{
@@ -41,7 +51,7 @@ class User
 		}
 		else if (strlen($login) > 16)
 		{
-			throw new Exception("Login trop long.")
+			throw new Exception("Login trop long.");
 		}
 		else
 		{
@@ -52,6 +62,11 @@ class User
 	{
 		if (!empty($email))
 			$this->email = $email;
+	}
+	public function setPassword($password)
+	{
+		if (!empty($password))
+			$this->password = $password;
 	}
 	public function setAvatar($avatar)
 	{
