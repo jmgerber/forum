@@ -1,11 +1,5 @@
 <?php
 require('models/Topic.class.php');
-	
-
-
-	
-
-
 
 class Categorie
 {
@@ -59,7 +53,7 @@ class Categorie
 	}
 	public function delete($id)
 	{
-		$request = "DELETE FROM topics WHERE id_category='".$this->id."'";
+		$request = "DELETE FROM topics WHERE id_category='".$this->id."'";0
 		mysqli_query($this->link, $request);
 	}
 	public function update($topics)
