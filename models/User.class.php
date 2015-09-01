@@ -80,5 +80,14 @@ class User
 			throw new Exception("L'ancien mot de passe ne correspond pas.");
 		}
 	}
+	public function addBanni($id)
+	{
+		$request = "INSERT INTO bannis VALUES(NULL, '".$id."')";
+		$res = mysqli_query($this->link, $request);
+		if($res)
+			return $this->select(mysqli_insert_id($this->link));
+		else
+			throw new Exception("Une erreur est survenue");		
+	}
 }
 ?>
