@@ -1,0 +1,29 @@
+<h1>Inscription</h1>
+<p>Nouveau sur le forum ? Créer votre compte :</p>
+<p class="bg-danger"><?=$error?></p>
+<form method="post">
+    <fieldset>
+        <legend>Informations personnelles</legend>
+        <div class="form-group">
+            <label for="login">Login</label>
+            <input type="text" class="form-control" id="login" name="login" placeholder="Votre login">
+        </div>
+        <div class="form-group">
+            <label for="email">Adresse email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Votre mail">
+        </div>
+        <div class="form-group">
+            <label for="password1">Mot de passe</label>
+            <input type="password" class="form-control" id="password1" name ="password1" placeholder="Votre mot de passe">
+        </div>
+        <div class="form-group">
+            <label for="password2">Mot de passe (confirmation)</label>
+            <input type="password" class="form-control" id="password2" name ="password2" placeholder="Confirmer votre mot de passe">
+        </div>
+        <div class="form-group">
+            <label for="avatar">Avatar</label>
+            <input type="url" class="form-control" id="avatar" name="avatar" placeholder="Entrez l'URL de l'avatar">
+        </div>
+    </fieldset>
+    <button type="submit" class="btn btn-default">Envoyer</button>
+</form>
