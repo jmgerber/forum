@@ -7,7 +7,22 @@ img{max-width: 100%;}
 
 
 /*CSS JEROME*/
+body{
+	font-family: Roboto;
+	font-weight: 400;
+	font-size: 1.5em;
+}
 
+header{
+	background: url('../img/viandes3.jpg') center center no-repeat;
+	min-height: 200px;
+	text-align: center;
+}
 
+header h1{
+	text-transform: uppercase;
+	color: #DDD;
+	font-size: 5em;
+}
 
 /*CSS LAURENT*/
