@@ -25,4 +25,10 @@ header h1{
 	font-size: 5em;
 }
 
+.chemin, .add, .messages-content, .messages-modif{
+	padding: 5px;
+}
+
+.messages-modif{text-align: center;}
+
 /*CSS LAURENT*/
