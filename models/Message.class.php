@@ -40,12 +40,22 @@ class Message
 		if(strlen($contenu) > 0)
 			$this->contenu = $contenu;
 		else
-			throw new Exception("Le nouveau contenu est vide");
+			throw new Exception("Le contenu du message est vide");
 	}
-	public function setDate($date)
+	public function setDate()
 	{
 		$this->date = time();
 	}
-	
+	public function setSignalement($booleen)
+	{
+		if ($booleen == false)
+		{
+			$this->signalement = 0;
+		}
+		else
+		{
+			$this->signalement += 1;
+		}
+	}
 }
 ?>
