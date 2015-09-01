@@ -1,10 +1,8 @@
 <?php
 require('models/Categorie.class.php');
-
 class CategorieManager
 {
 	private $link;
-
 	public function __construct($link)
 	{
 		$this->link = $link;
@@ -16,8 +14,8 @@ class CategorieManager
 		// Pas besoin de while ici, vu qu'on ne récup qu'un seul et unique résultat
 		$categorie = mysqli_fetch_object($res, 'Categorie', array($this->link));
 		return $categorie;
-
 	}
+	
 	public function selectAll()
 	{
 		$request = "SELECT * FROM categorie";
