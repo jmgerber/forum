@@ -30,7 +30,7 @@ class CategorieManager
 	public function update($category)
 	{
 		$nom = mysqli_real_escape_string($this->link, $category->getNom());
-		$request = "UPDATE categories SET category='".$category->getCategory()."' WHERE id='".$categorie->getId()."'";
+		$request = "UPDATE categories SET category='".$nom."' WHERE id='".$category->getId()."'";
 		mysqli_query($this->link, $request);
 	}
 
