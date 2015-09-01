@@ -10,24 +10,21 @@ class UserManager
 
 	public function create($login, $email, $password, $url)
 	{
-		if
-		if (!empty($contenu))
-		{
-			$contenu = mysqli_real_escape_string($contenu);
-			$date = time();
-			$id_auteur = $_SESSION['id'];
-			$id_topic = $this->id;
-			$signalement = 0;
-			$request = "INSERT INTO messages
-			VALUES (NULL, '".$contenu."', '".$date."', '".$id_auteur."', '".$id_topic."', '".$signalement."')";
-			mysqli_query($this->link, $request);
-			//Récupère l'id de la dernière requête SQL à savoir UPDATE !
+		$user = new User($this->link);
+		$user->setLogin($login);
+		$user->setEmail($email);
+		$user->setAvatar($url);
+		$user->setStatut($statut);
+		$login = mysqli_real_escape_string($this->link, $user->getLogin());
+		$email = mysqli_real_escape_string($this->link, $user->getEmail());
+		$avatar = mysqli_real_escape_string($this->link, $user->getAvatar());
+		$statut = mysqli_real_escape_string($this->link, $user->getStatut());
+		$request = "INSERT INTO user VALUES(NULL, '".$login."', '".$email."', '".$avatar."','')";
+		$res = mysqli_query($this->link, $request);
+		if($res)
 			return $this->select(mysqli_insert_id($this->link));
-		}
-		else 
-		{
-			throw new Exception("Pour publier, vous devez saisir un message.");
-		}
+		else
+			throw new Exception("Internal server error");
 	}
 
 	public function delete()
@@ -47,7 +44,7 @@ class UserManager
 
 	public function selectAll()
 	{
-		$request = "SELECT * from user";
+		$request = "SELECT * FROM user";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while ($user = mysqli_fetch_object($res, "User", array($this->link)))
