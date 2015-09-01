@@ -46,16 +46,16 @@ class Message
 	{
 		$this->date = time();
 	}
-	public function setSignalement($booleen)
+
+	//OTHERS
+	public function signalement()
 	{
-		if ($booleen == false)
-		{
-			$this->signalement = 0;
-		}
-		else
-		{
-			$this->signalement += 1;
-		}
+		$this->signalement += 1;
+	}
+
+	public function resetSignalement()
+	{
+		$this->signalement = 0;
 	}
 }
 ?>

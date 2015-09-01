@@ -59,14 +59,12 @@ class Topic{
 	{
 		$message = new Message($this->link);
 		$message->setContenu($contenu);
-		//$message->setDate();
-		//$message->setSignalement(false);
 
 		$contenu = mysqli_real_escape_string($contenu);
 		$id_auteur = $_SESSION['id'];
 		$id_topic = $this->id;
-		$request = "INSERT INTO messages
-		VALUES (NULL, '".$contenu."', '".$date."', '".$id_auteur."', '".$id_topic."', '".$signalement."')";
+		$request = "INSERT INTO messages (contenu, id_auteur, id_topic)
+		VALUES ('".$contenu."', '".$id_auteur."', '".$id_topic."')";
 		$res = mysqli_query($this->link, $request);
 		//Récupère l'id de la dernière requête SQL à savoir UPDATE !
 		if ($res)
