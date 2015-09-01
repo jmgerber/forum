@@ -18,7 +18,21 @@
 <body>
 	<?php
 		require ('./apps/menu.php');
-		require ('./apps/content.php');
 	?>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<?php
+					require ('./apps/tchat.php');
+				?>
+			</div>
+			<div class="col-md-9">
+				<?php
+					require ('./apps/content.php');
+				?>
+			</div>
+		</div>
+	</div>
+	
 </body>
 </html>
