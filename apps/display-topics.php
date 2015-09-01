@@ -1,3 +1,3 @@
 <?php
-require ('./views/topics.phtml');
+require ('./views/display-topics.phtml');
 ?>
