@@ -53,10 +53,10 @@ class User
 		if (!empty($email))
 			$this->email = $email;
 	}
-	public function setAvatar($url)
+	public function setAvatar($avatar)
 	{
-		if (!empty($url))
-			$this->avatar = $url;
+		if (!empty($avatar))
+			$this->avatar = $avatar;
 	}
 	public function setStatut($statut)
 	{
