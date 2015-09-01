@@ -9,18 +9,18 @@ class UserManager
 		$this->link = $link;
 	}
 
-	public function create($login, $email, $avatar, $statut)
+	public function create($login, $email, $password, $avatar)
 	{
 		$user = new User($this->link);
 		$user->setLogin($login);
 		$user->setEmail($email);
+		$user->setPassword($password);
 		$user->setAvatar($avatar);
-		$user->setStatut($statut);
 		$login = mysqli_real_escape_string($this->link, $user->getLogin());
 		$email = mysqli_real_escape_string($this->link, $user->getEmail());
+		$password = mysqli_real_escape_string($this->link, $user->getPassword());
 		$avatar = mysqli_real_escape_string($this->link, $user->getAvatar());
-		$statut = mysqli_real_escape_string($this->link, $user->getStatut());
-		$request = "INSERT INTO user VALUES(NULL, '".$login."', '".$email."', '".$avatar."','')";
+		$request = "INSERT INTO user VALUES(NULL, '".$login."', '".$email."', '".$password."', '".$avatar."','')";
 		$res = mysqli_query($this->link, $request);
 		if($res)
 			return $this->select(mysqli_insert_id($this->link));
@@ -39,7 +39,6 @@ class UserManager
 		$login = mysqli_real_escape_string($this->link, $user->getLogin());
 		$email = mysqli_real_escape_string($this->link, $user->getEmail());
 		$avatar = mysqli_real_escape_string($this->link, $user->getAvatar());
-		$statut = mysqli_real_escape_string($this->link, $user->getStatut());
 		$request = "UPDATE user SET
 		 	login = '".$login."',
 			email = '".$email."',
