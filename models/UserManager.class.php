@@ -8,9 +8,26 @@ class UserManager
 		$this->link = $link;
 	}
 
-	public function create()
+	public function create($login, $email, $password, $url)
 	{
-		
+		if
+		if (!empty($contenu))
+		{
+			$contenu = mysqli_real_escape_string($contenu);
+			$date = time();
+			$id_auteur = $_SESSION['id'];
+			$id_topic = $this->id;
+			$signalement = 0;
+			$request = "INSERT INTO messages
+			VALUES (NULL, '".$contenu."', '".$date."', '".$id_auteur."', '".$id_topic."', '".$signalement."')";
+			mysqli_query($this->link, $request);
+			//Récupère l'id de la dernière requête SQL à savoir UPDATE !
+			return $this->select(mysqli_insert_id($this->link));
+		}
+		else 
+		{
+			throw new Exception("Pour publier, vous devez saisir un message.");
+		}
 	}
 
 	public function delete()

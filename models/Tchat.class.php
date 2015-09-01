@@ -1,7 +1,7 @@
 <?php
 class Tchat
 {
-	// // Propriétés de notre class Tchat
+	// Propriétés de notre class Tchat
 	private $id;
 	private $message;
 	private $date;
@@ -32,11 +32,7 @@ class Tchat
 		if (strlen($message) > 1)
 			$this->message = $message;
 		else
-			throw new Exception('Aucun message saisie');
-	}
-	public function setDate()
-	{
-		$this->date = time();
+			throw new Exception('Aucun message saisi');
 	}
 }
 

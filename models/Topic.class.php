@@ -1,4 +1,5 @@
 <?php
+require('models/Message.class.php');
 class Topic{
 	//Propriétés
 	private $id;
@@ -56,24 +57,20 @@ class Topic{
 	//MessagesManager
 	public function create($contenu)
 	{
-		if (!empty($contenu))
-		{
-			$contenu = mysqli_real_escape_string($contenu);
-			$date = time();
-			$id_auteur = $_SESSION['id'];
-			$id_topic = $this->id;
-			$signalement = 0;
-			$request = "INSERT INTO messages
-			VALUES (NULL, '".$contenu."', '".$date."', '".$id_auteur."', '".$id_topic."', '".$signalement."')";
-			mysqli_query($this->link, $request);
-			//Récupère l'id de la dernière requête SQL à savoir UPDATE !
+		$message = new Message($this->link);
+		$message->setContenu($contenu);
+
+		$contenu = mysqli_real_escape_string($contenu);
+		$id_auteur = $_SESSION['id'];
+		$id_topic = $this->id;
+		$request = "INSERT INTO messages (contenu, id_auteur, id_topic)
+		VALUES ('".$contenu."', '".$id_auteur."', '".$id_topic."')";
+		$res = mysqli_query($this->link, $request);
+		//Récupère l'id de la dernière requête SQL à savoir UPDATE !
+		if ($res)
 			return $this->select(mysqli_insert_id($this->link));
-		}
-		else 
-		{
-			throw new Exception("Pour publier, vous devez saisir un message.");
-		}
-		
+		else
+			throw new Exception("Erreur interne du serveur");
 	}
 
 	public function delete($id)
@@ -82,20 +79,16 @@ class Topic{
 		mysqli_query($this->link, $request);
 	}
 
-	public function update($contenu, $signalement, $id_topic)
+	public function update($message)
 	{
-		if (!empty($contenu))
-		{
-			$contenu = mysqli_real_escape_string($contenu);
-			$request = "UPDATE messages
-			SET contenu = '".$contenu."', signalement = '".$signalement."')
-			WHERE id_topic = '".$id_topic."'";
-			mysqli_query($this->link, $request);
-		}
-		else 
-		{
-			throw new Exception("Pour modifier, vous devez saisir un message.");
-		}
+		$contenu = mysqli_real_escape_string($this->link, $message->getContenu());
+		$signalement = intval($message->getSignalement());
+		$id_topic = intval($message->getId_topic());
+		$request = "UPDATE messages
+		SET contenu = '".$contenu."', signalement = '".$signalement."'
+		WHERE id_topic = '".$id_topic."'";
+		mysqli_query($this->link, $request);
+		
 	}
 
 	public function selectAll()
