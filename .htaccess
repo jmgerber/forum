@@ -7,8 +7,9 @@ RewriteCond %{REQUEST_FILENAME} !-l
 
 RewriteRule ^([a-zA-Z0-9_\-]+)/?$ index.php?page=$1 [L,QSA]
 
-RewriteRule ^categorie/([a-zA-Z0-9_\-:]+)/?$ index.php?page=categorie&id_categorie=$1 [L]
+RewriteRule ^home/(.+)/?$ index.php?page=home&category=$1 [L,QSA]
 
-RewriteRule ^topic/([a-zA-Z0-9_\-:]+)/?$ index.php?page=topic&id_topic=$1 [L]
+RewriteRule ^home/(.+)/(.+)/?$ index.php?page=home&category=$1&topic=$2 [L,QSA]
+
 
 
