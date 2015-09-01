@@ -46,5 +46,6 @@ class Message
 	{
 		$this->date = time();
 	}
+	
 }
 ?>

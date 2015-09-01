@@ -38,7 +38,6 @@ class Tchat
 	{
 		$this->date = time();
 	}
-
 }
 
 ?>
