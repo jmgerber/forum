@@ -1,0 +1,14 @@
+RewriteEngine On
+Options +FollowSymLinks
+#Ligne suivante à effacer sur un site final (accès aux répertoires)
+RewriteCond %{REQUEST_FILENAME} !-d 
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ^([a-zA-Z0-9_\-]+)/?$ index.php?page=$1 [L,QSA]
+
+RewriteRule ^categorie/([a-zA-Z0-9_\-:]+)/?$ index.php?page=categorie&id_categorie=$1 [L]
+
+RewriteRule ^topic/([a-zA-Z0-9_\-:]+)/?$ index.php?page=topic&id_topic=$1 [L]
+
+
