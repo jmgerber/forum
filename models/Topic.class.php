@@ -1,4 +1,5 @@
 <?php
+require('models/Message.class.php');
 class Topic{
 	//Propriétés
 	private $id;
@@ -58,8 +59,8 @@ class Topic{
 	{
 		$message = new Message($this->link);
 		$message->setContenu($contenu);
-		$message->setDate();
-		$message->setSignalement(false);
+		//$message->setDate();
+		//$message->setSignalement(false);
 
 		$contenu = mysqli_real_escape_string($contenu);
 		$id_auteur = $_SESSION['id'];
@@ -84,7 +85,7 @@ class Topic{
 	{
 		$contenu = mysqli_real_escape_string($this->link, $message->getContenu());
 		$signalement = intval($message->getSignalement());
-		$id_topic = intval($message->getId_topic);
+		$id_topic = intval($message->getId_topic());
 		$request = "UPDATE messages
 		SET contenu = '".$contenu."', signalement = '".$signalement."'
 		WHERE id_topic = '".$id_topic."'";
