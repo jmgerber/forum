@@ -41,6 +41,12 @@ class Topic
 	{
 		return $this->id_category;
 	}
+	public function getCategory ()
+	{
+		$manager = new Categorie($this->link);
+		$catégorie = $manager->selectById($this->id_category);
+		return $category;
+	}
 
 	//SETTERS
 	public function setTitre($titre)
