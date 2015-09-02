@@ -24,7 +24,7 @@ if (isset($_POST['insert'], $_POST['contenu']))
 		$error = $e->getMessage();
 		
 	}
-	if (!empty($error))
+	if (empty($error))
 	{
 		header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
 		exit;
@@ -40,7 +40,11 @@ if (isset($_POST['update']))
 //Suppression d'un message
 if (isset($_POST['delete']))
 {
-
+	$id = $_GET['id'];
+	$manager = new Topic($link);
+	$manager->delete($id);
+	header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+	exit;
 }
 
 //Signalement d'un message
