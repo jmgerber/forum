@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['id']) && $_SESSION['admin'] == TRUE)
+if (isset($_SESSION['id'], $_SESSION['admin']) && $_SESSION['admin'] == TRUE)
 {
 	require ('./views/menu-admin.phtml');
 }
