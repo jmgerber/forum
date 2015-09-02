@@ -32,6 +32,12 @@ class Message
 	{
 		return $this->id_auteur;
 	}
+	public function getAuteur()
+	{
+		$manager = new UserManager($this->link);
+		$user = $manager->selectById($this->id_auteur);
+		return $user;
+	}
 	public function getId_topic()
 	{
 		return $this->id_topic;
