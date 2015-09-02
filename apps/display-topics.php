@@ -9,6 +9,7 @@ var_dump($topics);
 $i=0;
 while (isset($topics[$i]))
 {
+	$topic = $topics[$i];
 	require ('./views/display-topics.phtml');
 }	// while ($topics = )
 	// {

@@ -1,6 +1,6 @@
 <article class="row">
-	<div class="col-md-6"><a href="#"><?=htmlentities($titre['topics'])?></a></div>
-	<div class="col-md-2"><a href="#"><?=htmlentities($id_auteur['topics'])?></a></div>
+	<div class="col-md-6"><a href="#"><?=htmlentities($topic->getTitre())?></a></div>
+	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getAuteur())?></a></div>
 	<div class="col-md-2"><a href="#"></a></div>
-	<div><a href="#"><?=htmlentities($date['topics'])?></a></div>
+	<div><a href="#"><?=htmlentities($topic->getDate())?></a></div>
 </article>
