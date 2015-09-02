@@ -51,7 +51,7 @@ class CategorieManager
 		$categorie = mysqli_fetch_object($res, 'Categorie', array($this->link));
 		return $categorie;
 	}
-	
+
 	public function selectAll()
 	{
 		$request = "SELECT * FROM categories";

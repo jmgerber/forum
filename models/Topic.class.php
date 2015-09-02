@@ -41,7 +41,12 @@ class Topic
 	{
 		return $this->id_category;
 	}
-
+	public function getCategory()
+	{
+		$manager = new CategorieManager($this->link);
+		$categorie = $manager->select($this->id_category);
+		return $categorie;
+	}
 	//SETTERS
 	public function setTitre($titre)
 	{
@@ -74,7 +79,7 @@ class Topic
 		$res = mysqli_query($this->link, $request);
 		//Récupère l'id de la dernière requête SQL à savoir UPDATE !
 		if ($res)
-			return $this->select(mysqli_insert_id($this->link));
+			return $this->selectById(mysqli_insert_id($this->link));
 		else
 			throw new Exception("Erreur interne du serveur");
 	}
@@ -108,6 +113,15 @@ class Topic
 		}
 		return $resultat;
 	}
+
+	public function selectById($id)
+	{
+		$request = "SELECT * from messages WHERE id = '".$id."'";
+		$res = mysqli_query($this->link, $request);
+		$message = mysqli_fetch_object($res, "Message", array($this->link));
+		return $message;
+	}
+
 
 	public function selectBySignal()
 	{

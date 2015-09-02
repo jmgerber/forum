@@ -67,12 +67,21 @@ class Categorie
 		$topics = mysqli_fetch_object($res, 'Topic', array($this->link));
 		return $topics;
 	}
+
+	public function selectById($id)
+	{
+		$request = "SELECT * FROM topics WHERE id ='".$id."'";
+		$res = mysqli_query($this->link, $request);
+		$topic = mysqli_fetch_object($res, 'Topic', array($this->link));
+		return $topic;
+	}
+
 	public function selectByName($topic)
 	{
 		$request = "SELECT * FROM topics WHERE titre ='".$topic."' AND id_category='".$this->id."'";
 		$res = mysqli_query($this->link, $request);
-		$topics = mysqli_fetch_object($res, 'Topic', array($this->link));
-		return $topics;
+		$topic = mysqli_fetch_object($res, 'Topic', array($this->link));
+		return $topic;
 	}
 
 

@@ -44,6 +44,13 @@ class Message
 	{
 		return $this->id_topic;
 	}
+	public function getTopic()
+	{
+		$manager = new Categorie($this->link);
+		$topic = $manager->selectById($this->id_topic);
+		return $topic;
+	}
+
 	public function getSignalement()
 	{
 		return $this->signalement;
