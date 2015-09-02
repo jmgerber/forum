@@ -26,7 +26,5 @@ catch (Exception $exception)
 {
 	$error = $exception->getMessage();
 }
-
-// $login = mysqli_real_escape_string($link, $_POST['login']);
 ?>
 
