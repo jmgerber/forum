@@ -11,16 +11,20 @@ try
 			$password = $_POST['password'];
 			$manager = new UserManager($link);
 			$list = $manager->select($login);
-			var_dump($list);
-
-			if(password_verify($password, $list->getPassword()) == TRUE)
-			{
-				header('Location: home');
-				exit;
+			if(!empty($list)){
+				if(password_verify($password, $list->getPassword()) == TRUE)
+				{
+					$_SESSION['id'] = $list->getId();
+					header('Location: home');
+					exit;
+				}
+				else
+				{
+					$error = "Mot de passe incorrect";
+				}
 			}
-			else
-			{
-				$error = "Le mot de passe est incorrect";
+			else{
+				$error = "Identifiants incorrects";
 			}
 		}
 	}
