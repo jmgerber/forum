@@ -10,7 +10,7 @@ while (isset($messages[$i]))
 	$id_user = $messages[$i]->getId_auteur();
 	//Récupération des infos user
 	$usermanager = new UserManager($link);
-	$user = $usermanager->select($id_user);
+	$user = $usermanager->selectById($id_user);
 	$login = $user->getLogin();
 	$avatar = $user->getAvatar();
 	require ('./views/display-messages.phtml');

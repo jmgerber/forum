@@ -59,6 +59,16 @@ class UserManager
 			throw new Exception("L'utilisateur n'existe pas");
 		}
 	}
+
+	public function selectById($id)
+	{
+		$request = "SELECT * FROM user WHERE id = '".$id."'";
+		$res = mysqli_query($this->link, $request);
+		$user = mysqli_fetch_object($res, 'User', array($this->link));
+		return $user;
+	}
+
+
 	public function selectAll()
 	{
 		$request = "SELECT * FROM user";
