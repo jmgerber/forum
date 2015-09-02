@@ -31,6 +31,12 @@ class Topic
 	{
 		return $this->id_auteur;
 	}
+	public function getAuteur()
+	{
+		$manager = new UserManager($this->link);
+		$auteur = $manager->selectById($this->id_auteur);
+		return $auteur;
+	}
 	public function getIdCategory()
 	{
 		return $this->id_category;
