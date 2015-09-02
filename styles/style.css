@@ -52,4 +52,17 @@ header h1{
 
 .messages-modif{text-align: center;}
 
+.chemin p{
+	font-size: 2em;
+}
+
+.chemin a, .chemin p{
+	color: #AE3635;
+}
+
+.chemin a{
+	text-decoration: underline;
+}
+
+
 /*CSS LAURENT*/
