@@ -9,10 +9,11 @@ $categorie = $manager->selectByName($category);
 var_dump($categorie->getId());
 
 //Récupération du topic
-require('models/Categorie.class.php');
-$manager = new Categorie($link);
-$topic = $manager->selectByName($topic);
+$topic = $categorie->selectByName($topic);
 var_dump($topic->getId());
 
+//Récupération des messages
+$messages = $topic->selectAll();
+var_dump($messages);
 require ('views/messages.phtml');
 ?>
