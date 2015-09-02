@@ -9,24 +9,15 @@ if (isset($_GET['id']))
 	$manager = new Topic($link);
 	$message = $manager->selectById($id);
 	$topic = $message->getTopic();
-	
-	$category = $topic->getCategory()->getCategory();
-	$topic = $topic->getTitre();
+	$categorie = $topic->getCategory();
+
+	$categoryName = $topic->getCategory()->getCategory();
+	$topicName = $topic->getTitre();
 }
 
 //Insertion d'un nouveau message
 if (isset($_POST['insert'], $_POST['contenu']))
 {
-	$categoryName = $_GET['category'];
-	$topicName = $_GET['topic'];
-
-	//Récupération de la catégorie
-	$manager = new CategorieManager($link);
-	$categorie = $manager->selectByName($categoryName);
-
-	//Récupération du topic
-	$topic = $categorie->selectByName($topicName);
-
 	try
 	{
 		$message = $topic->create($_POST['contenu']);
@@ -38,7 +29,7 @@ if (isset($_POST['insert'], $_POST['contenu']))
 	}
 	if (empty($error))
 	{
-		// header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+		header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
 		exit;
 	}
 }
@@ -53,13 +44,16 @@ if (isset($_POST['update']))
 if (isset($_POST['delete']))
 {
 	$manager->delete($id);
-	header('Location: http://localhost/forum/home/'.$category.'/'.$topic);
+	header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
 	exit;
 }
 
 //Signalement d'un message
 if (isset($_POST['signalement']))
 {
-
+ 	$message->signalement();
+	$topic->update($message);
+	header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+	exit;
 }
 ?>

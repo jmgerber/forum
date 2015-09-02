@@ -96,12 +96,11 @@ class Topic
 	{
 		$contenu = mysqli_real_escape_string($this->link, $message->getContenu());
 		$signalement = intval($message->getSignalement());
-		$id_topic = intval($message->getId_topic());
+		$id = intval($message->getId());
 		$request = "UPDATE messages
 		SET contenu = '".$contenu."', signalement = '".$signalement."'
-		WHERE id_topic = '".$id_topic."'";
+		WHERE id = '".$id."'";
 		mysqli_query($this->link, $request);
-		
 	}
 
 	public function selectAll()
