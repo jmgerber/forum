@@ -1,9 +1,8 @@
-<h1>Ajouter un nouveau Topic : </h1>
+<h1>Modifier votre Topic</h1>
 <form>
 	<div class="form-group">
 		<label for="titreTopic">Titre du Topic</label>
-		<input type="titre" class="form-control" id="titreTopic" placeholder="Titre du Topic">
+		<input type="titre" class="form-control" id="titreTopic" value="<?=htmlentities($topic['titre'])?>">
 	</div>
 	<button type="submit" class="btn btn-default">Envoyer</button>
 </form>
-
