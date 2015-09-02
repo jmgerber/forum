@@ -52,8 +52,8 @@ class UserManager
 	{
 		$request = "SELECT * FROM user WHERE id = '".intval($id)."'";
 		$res = mysqli_query($this->link, $request);
-		$select = mysqli_fetch_object($res, 'User', array($this->link));
-		return $select;
+		$categorie = mysqli_fetch_object($res, 'User', array($this->link));
+		return $categorie;
 	}
 	public function selectAll()
 	{

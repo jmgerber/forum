@@ -1,6 +1,15 @@
 <div class="messages-modif">
-		<form method="post">
-			<button type="submit" class="btn btn-warning">Modifier</button>
-			<button type="submit" class="btn btn-danger">Supprimer</button>
-		</form>
-	</div>
+	<form method="post">
+		<div class="row">
+			<div class="col-md-3 col-md-offset-2">
+				<label>
+				   	<input name="signalement" type="checkbox"> Signaler ce message
+				</label>
+			</div>
+			<div class="col-md-offset-3 col-md-4">
+				<button name="update" type="submit" class="btn btn-warning">Modifier</button>
+				<button name="delete" type="submit" class="btn btn-danger">Supprimer</button>
+			</div>
+		</div>
+	</form>
+</div>

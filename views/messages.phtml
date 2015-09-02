@@ -1,10 +1,10 @@
-<?=urlencode('Boeuf à la mode de-Kobé'); ?>
 <div class="messages">
 	<div class="chemin">
 		<p>
-			<a href="home/<?=urlencode($category)?>"><?=htmlentities($category)?></a> <i class="fa fa-chevron-circle-right"></i> <?=htmlentities($topic)?>
+			<a href="home/<?=$category?>"><?=htmlentities($category)?></a> <i class="fa fa-chevron-circle-right"></i> <?=htmlentities($topic)?>
 			</p>
 	</div>
-	<?php require('./apps/add-message.php'); ?>
+	<h2>Liste des messages</h2>
 	<?php require ('./apps/display-messages.php'); ?>
+	<?php require('./apps/add-message.php'); ?>
 </div>
