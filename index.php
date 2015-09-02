@@ -12,6 +12,12 @@ if (!$link)
 }
 
 session_start();
+//Fonction qui permet d'automatiser les require des Classes
+function my_autoloader($className)
+{
+    require('./models/'.$className.'.class.php');
+}
+spl_autoload_register('my_autoloader');
 
 //Liste des pages à traiter
 $traitementList = array('login', 'logout', 'register', 'compte', 'categorie', 'topics', 'messages', 'gestion', 'tchat', 'membres');
