@@ -79,11 +79,6 @@ class User
 	}
 
 	//AUTRES
-	public function verifPassword($password)
-	{
-		return (password_verify($password, $this->password));
-	}
-
 	public function modifyPassword($oldPassword, $newPassword)
 	{
 		if ($this->verifPassword($oldPassword))
