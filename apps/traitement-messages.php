@@ -11,15 +11,23 @@ if (isset($_POST['insert'], $_POST['contenu']))
 	//Récupération de la catégorie
 	$manager = new CategorieManager($link);
 	$categorie = $manager->selectByName($categoryName);
-	// var_dump($categorie->getId());
 
 	//Récupération du topic
 	$topic = $categorie->selectByName($topicName);
-	// var_dump($topic->getId());
 
-	$message = $topic->create($_POST['contenu']);
-	header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
-	exit;
+	try
+	{
+		$message = $topic->create($_POST['contenu']);
+	}
+	catch
+	{
+		$error = $e->setContenu($_POST['contenu']);
+		if ($error !== "")
+		{
+			header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+			exit;
+		}
+	}
 }
 
 //Mise à jour d'un message
