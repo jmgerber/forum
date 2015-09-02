@@ -15,6 +15,9 @@ try
 				if(password_verify($password, $list->getPassword()) == TRUE)
 				{
 					$_SESSION['id'] = $list->getId();
+					if ($list->getStatut() == 1){
+						$_SESSION['admin'] = TRUE;
+					}
 					header('Location: home');
 					exit;
 				}
