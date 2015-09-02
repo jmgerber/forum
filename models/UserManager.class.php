@@ -51,8 +51,13 @@ class UserManager
 	{
 		$request = "SELECT * FROM user WHERE login = '".$login."'";
 		$res = mysqli_query($this->link, $request);
-		$categorie = mysqli_fetch_object($res, 'User', array($this->link));
-		return $categorie;
+		if($res){
+			$categorie = mysqli_fetch_object($res, 'User', array($this->link));
+			return $categorie;
+		}
+		else{
+			throw new Exception("L'utilisateur n'existe pas");
+		}
 	}
 	public function selectAll()
 	{
