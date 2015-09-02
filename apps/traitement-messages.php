@@ -19,14 +19,15 @@ if (isset($_POST['insert'], $_POST['contenu']))
 	{
 		$message = $topic->create($_POST['contenu']);
 	}
-	catch
+	catch (Exception $e)
 	{
-		$error = $e->setContenu($_POST['contenu']);
-		if ($error !== "")
-		{
-			header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
-			exit;
-		}
+		$error = $e->getMessage();
+		
+	}
+	if (!empty($error))
+	{
+		header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+		exit;
 	}
 }
 
