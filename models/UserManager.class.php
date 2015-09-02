@@ -1,5 +1,4 @@
 <?php
-require('models/User.class.php');
 class UserManager
 {
 	private $link; 
@@ -48,9 +47,9 @@ class UserManager
 		mysqli_query($this->link, $request);
 	}
 
-	public function select($id)
+	public function select($login)
 	{
-		$request = "SELECT * FROM user WHERE id = '".intval($id)."'";
+		$request = "SELECT * FROM user WHERE login = '".$login."'";
 		$res = mysqli_query($this->link, $request);
 		$categorie = mysqli_fetch_object($res, 'User', array($this->link));
 		return $categorie;

@@ -1,6 +1,4 @@
 <?php
-require('models/Topic.class.php');
-
 class Categorie
 {
 	// Propriétés de la class class Message

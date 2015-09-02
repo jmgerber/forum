@@ -1,5 +1,4 @@
 <?php
-require('models/UserManager.class.php');
 $manager = new UserManager($link);
 
 try

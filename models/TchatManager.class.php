@@ -1,5 +1,4 @@
 <?php
-require ('models/Tchat.class.php');
 class TchatManager
 {
 	private $link;
