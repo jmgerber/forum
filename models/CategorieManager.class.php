@@ -1,5 +1,4 @@
 <?php
-require('models/Categorie.class.php');
 class CategorieManager
 {
 	private $link;
