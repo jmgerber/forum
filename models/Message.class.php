@@ -7,6 +7,12 @@ class Message
 	private $date;
 	private $id_auteur;
 	private $id_topic;
+	private $link; 
+
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
 
 	// Méthodes de la class Message
 	// GETTER
