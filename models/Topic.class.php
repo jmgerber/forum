@@ -60,7 +60,7 @@ class Topic
 		$message = new Message($this->link);
 		$message->setContenu($contenu);
 
-		$contenu = mysqli_real_escape_string($contenu);
+		$contenu = mysqli_real_escape_string($this->link, $contenu);
 		$id_auteur = $_SESSION['id'];
 		$id_topic = $this->id;
 		$request = "INSERT INTO messages (contenu, id_auteur, id_topic)
