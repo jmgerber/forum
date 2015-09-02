@@ -94,7 +94,7 @@ class Topic
 
 	public function selectAll()
 	{
-		$request = "SELECT * from messages WHERE id_topic = '".$this->id."'";
+		$request = "SELECT * from messages WHERE id_topic = '".$this->id."' ORDER BY date DESC";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while ($message = mysqli_fetch_object($res, "Message", array($this->link)))
