@@ -66,7 +66,7 @@ class User
 	public function setPassword($password)
 	{
 		if (!empty($password))
-			$this->password = $password;
+			$this->password = password_hash($password, PASSWORD_BCRYPT, array("cost"=>11));
 	}
 	public function setAvatar($avatar)
 	{

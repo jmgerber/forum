@@ -43,6 +43,15 @@ class CategorieManager
 		$categorie = mysqli_fetch_object($res, 'Categorie', array($this->link));
 		return $categorie;
 	}
+
+	public function selectByName($category)// On demande a notre manager de récupérer la category par son nom envoyé dans l'URL
+	{
+		$request = "SELECT * FROM categories WHERE category = '".$category."'";// on n'oublie pas le intval, pour la sécurité :)
+		$res = mysqli_query($this->link, $request);
+		// Pas besoin de while ici, vu qu'on ne récup qu'un seul et unique résultat
+		$categorie = mysqli_fetch_object($res, 'Categorie', array($this->link));
+		return $categorie;
+	}
 	
 	public function selectAll()
 	{
