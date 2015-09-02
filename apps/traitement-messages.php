@@ -37,7 +37,7 @@ if (isset($_POST['insert'], $_POST['contenu']))
 //Mise à jour d'un message
 if (isset($_POST['update']))
 {
-
+	
 }
 
 //Suppression d'un message
