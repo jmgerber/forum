@@ -32,6 +32,7 @@ class Message
 	{
 		return $this->id_auteur;
 	}
+	
 	public function getId_topic()
 	{
 		return $this->id_topic;
