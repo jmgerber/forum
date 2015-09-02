@@ -11,7 +11,7 @@ RewriteRule ^home/(.+)/(.+)/?$ index.php?page=home&category=$1&topic=$2 [L]
 
 RewriteRule ^home/(.+)/?$ index.php?page=home&category=$1 [L]
 
-RewriteRule ^messages/(.+)/(.+)/?$ index.php?page=messages&categoryName=$1&topicName=$2 [L]
+RewriteRule ^messages/(.+)/(.+)/?$ index.php?page=messages&category=$1&topic=$2 [L]
 
 
 
