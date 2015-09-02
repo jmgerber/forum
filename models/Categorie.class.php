@@ -66,14 +66,14 @@ class Categorie
 	{
 		$request = "SELECT * FROM topics WHERE id='".intval($id)."' AND id_category='".$this->id."'";
 		$res = mysqli_query($this->link, $request);
-		$topics = mysqli_fetch_category($res, 'topics', array($this->link));
+		$topics = mysqli_fetch_object($res, 'Topic', array($this->link));
 		return $topics;
 	}
 	public function selectByName($topic)
 	{
 		$request = "SELECT * FROM topics WHERE titre ='".$topic."' AND id_category='".$this->id."'";
 		$res = mysqli_query($this->link, $request);
-		$topics = mysqli_fetch_category($res, 'topics', array($this->link));
+		$topics = mysqli_fetch_object($res, 'Topic', array($this->link));
 		return $topics;
 	}
 
@@ -83,7 +83,7 @@ class Categorie
 		$request = "SELECT * FROM topics WHERE id_category='".$this->id."'";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
-		while($topics = mysqli_fetch_category($res, 'topics', array($this->link)))
+		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
 		{
 			$resultat[] = $topics;
 		}	
