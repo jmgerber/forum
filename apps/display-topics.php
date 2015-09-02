@@ -5,8 +5,12 @@ $categorie = $manager->selectByName($_GET['category']);
 $topics = $categorie->selectAll();
 var_dump($topics);
 
-require ('./views/display-topics.phtml');
-	// while ($topics = )
+
+$i=0;
+while (isset($topics[$i]))
+{
+	require ('./views/display-topics.phtml');
+}	// while ($topics = )
 	// {
 	// require ('./display-topics.phtml')
 	// }
