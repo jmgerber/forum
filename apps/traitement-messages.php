@@ -18,6 +18,8 @@ if (isset($_POST['insert'], $_POST['contenu']))
 	// var_dump($topic->getId());
 
 	$message = $topic->create($_POST['contenu']);
+	header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+	exit;
 }
 
 //Mise à jour d'un message
