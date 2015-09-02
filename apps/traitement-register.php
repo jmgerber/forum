@@ -1,6 +1,5 @@
 <?php
 $manager = new UserManager($link);
-
 try
 {
 	if(isset($_POST['login'], $_POST['email'], $_POST['password'], $_POST['password2'], $_POST['avatar'])){
