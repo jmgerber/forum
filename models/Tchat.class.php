@@ -25,6 +25,12 @@ class Tchat
 	{
 		return $this->id_auteur;
 	}
+	public function getAuteur()
+	{
+		$manager = new UserManager($this->link);
+		$user = $manager->selectById($this->id_auteur);
+		return $user;
+	}
 
 	//SETTER
 	public function setMessage($message)
