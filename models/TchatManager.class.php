@@ -29,7 +29,7 @@ class TchatManager
 		$request = "SELECT * FROM tchat";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
-		while ($message = mysqli_fetch_category($res, 'Tchat', array($this->link)))
+		while ($message = mysqli_fetch_object($res, 'Tchat', array($this->link)))
 		{
 			$resultat[] = $message;
 		}
