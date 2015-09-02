@@ -6,6 +6,12 @@ class Tchat
 	private $message;
 	private $date;
 	private $id_auteur;
+	private $link;
+
+	public function __construct($link)
+	{
+		$this->link = $link;
+	}
 
 
 	//GETTER
