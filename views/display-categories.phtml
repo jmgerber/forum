@@ -1,0 +1,9 @@
+<div class="wrapper-categorie">
+	<form class="form-inline" action="gestion/<?=$result->getId()?>" method="post">
+		<div class="form-group">
+			<h4><input name="nom" type="text" value="<?=htmlentities($result->getCategory());?>" class="form-control"></h4>
+		</div>
+		<button name="update" id="modif" class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button>
+		<button name="delete" class="btn btn-danger" type="submit"><i class="fa fa-times"></i></button>
+	</form>
+</div>

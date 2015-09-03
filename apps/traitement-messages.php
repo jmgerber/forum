@@ -1,7 +1,4 @@
 <?php
-var_dump($_POST);
-var_dump($_GET);
-
 //Récupération des infos message, topic, category
 if (isset($_GET['id']))
 {
@@ -29,7 +26,7 @@ if (isset($_POST['insert'], $_POST['contenu']))
 	}
 	if (empty($error))
 	{
-		header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+		header('Location: home/'.$categoryName.'/'.$topicName);
 		exit;
 	}
 }
@@ -57,7 +54,7 @@ if (isset($_POST['update'], $_POST['contenu']))
 if (isset($_POST['delete']))
 {
 	$manager->delete($id);
-	header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+	header('Location: home/'.$categoryName.'/'.$topicName);
 	exit;
 }
 
@@ -66,7 +63,7 @@ if (isset($_POST['signalement']))
 {
  	$message->signalement();
 	$topic->update($message);
-	header('Location: http://localhost/forum/home/'.$categoryName.'/'.$topicName);
+	header('Location: home/'.$categoryName.'/'.$topicName);
 	exit;
 }
 ?>

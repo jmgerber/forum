@@ -1,7 +1,7 @@
 <div class="messages">
 	<div class="chemin">
 		<p>
-			<a href="home/<?=$categoryName?>"><?=htmlentities($categoryName)?></a> <i class="fa fa-chevron-circle-right"></i> <?=htmlentities($topicName)?>
+			<a href="home/<?=$categorie->getCategory()?>"><?=htmlentities($categorie->getCategory())?></a> <i class="fa fa-chevron-circle-right"></i> <?=htmlentities($topic->getTitre())?>
 			</p>
 	</div>
 	<h2>Liste des messages</h2>
