@@ -1,7 +1,7 @@
 <?php
 class Categorie
 {
-	// Propriétés de la class class Message
+	// Propriétés de la class class Categorie
 	private $id;
 	private $category;
 
@@ -31,7 +31,7 @@ class Categorie
 	public function setTitre($titre)
 	{
 		if (strlen($titre) > 3 && strlen($titre) < 128)
-			$this->titre = $titre;
+			$this->category = $titre;
 		else
 			throw new Exception("La longueur du titre de la catégorie doit être compris entre 4 et 128 caractères");
 	}

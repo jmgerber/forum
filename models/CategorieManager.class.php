@@ -10,9 +10,9 @@ class CategorieManager
 
 	public function create($nom)
 	{
-		$category = new Category($this->link);
-		$category->setCategory($nom);
-		$nom = mysqli_real_escape_string($this->link, $category->getNom());
+		$category = new Categorie($this->link);
+		$category->setTitre($nom);
+		$nom = mysqli_real_escape_string($this->link, $category->getCategory());
 		$request = "INSERT INTO categories VALUES(NULL, '".$nom."')";
 		$res = mysqli_query($this->link, $request);
 		if($res)
