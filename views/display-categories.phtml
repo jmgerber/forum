@@ -1,16 +1,9 @@
-
-<div class="row">
-	<div class="col-md-offset-2 col-md-2">
-		<h4><?=htmlentities($result->getCategory());?></h4>
-	</div>
-	<div class="col-md-5">
-		<form action="gestion/<?=$result->getId()?>" method="post">
-			<div class="col-md-2">
-				<button name="update" class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button>
-			</div>
-			<div class="col-md-2">
-				<button name="delete" class="btn btn-danger" type="submit"><i class="fa fa-times"></i></button>
-			</div>
-		</form>
-	</div>
+<div class="wrapper-categorie">
+	<form class="form-inline" action="gestion/<?=$result->getId()?>" method="post">
+		<div class="form-group">
+			<h4><input name="nom" type="text" value="<?=htmlentities($result->getCategory());?>" class="form-control"></h4>
+		</div>
+		<button name="update" id="modif" class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button>
+		<button name="delete" class="btn btn-danger" type="submit"><i class="fa fa-times"></i></button>
+	</form>
 </div>
