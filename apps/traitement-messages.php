@@ -1,7 +1,4 @@
 <?php
-var_dump($_POST);
-var_dump($_GET);
-
 //Récupération des infos message, topic, category
 if (isset($_GET['id']))
 {
