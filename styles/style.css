@@ -80,7 +80,7 @@ header h1{
 	font-size: 2em;
 }
 
-.chemin a, .chemin p{
+.chemin a, .chemin p, .gestion h1{
 	color: #AE3635;
 }
 
