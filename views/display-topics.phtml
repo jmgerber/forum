@@ -1,7 +1,12 @@
 <article class="row">
-	<div class="col-md-6"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
+	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
 	<div class="col-md-1">2</div>
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
-	<div class="col-md-1"><a href=""><i class="fa fa-pencil-square-o"></i></a><a href=""><i class="fa fa-times"></i></a></div>
+	<div class="col-md-2">
+		<form method="post">
+		<button class="topic-modify" type="submit"><i class="fa fa-pencil-square-o"></i></button>
+		<button class="topic-remove"type="submit"><i class="fa fa-times"></i></button>
+		</form>
+	</div>
 </article>
