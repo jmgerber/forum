@@ -1,14 +1,10 @@
 <div class="messages-modif">
-	<hr>
 	<form action="messages/<?=$message->getId()?>" method="post">
 		<div class="row">
-			<div class="col-md-3 col-md-offset-2">
+			<div class="col-md-3 col-md-offset-4">
 				<button name="signalement" type="submit" class="btn btn-warning">Signaler ce message</button>
 			</div>
-			<div class="col-md-offset-3 col-md-4">
-				<div class="btn btn-success modify">Modifier</div>
-				<button name="delete" type="submit" class="btn btn-danger">Supprimer</button>
-			</div>
+			<?php require('./apps/access-message.php'); ?>
 		</div>
 	</form>
 </div>
