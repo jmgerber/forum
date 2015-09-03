@@ -35,9 +35,22 @@ if (isset($_POST['insert'], $_POST['contenu']))
 }
 
 //Mise à jour d'un message
-if (isset($_POST['update']))
+if (isset($_POST['update'], $_POST['contenu']))
 {
-	
+	try
+	{
+		$message->setContenu($_POST['contenu']);
+	}
+	catch (Exception $e)
+	{
+		$error = $e->getMessage();
+	}
+	if(empty($error))
+	{
+		$topic->update($message);
+		exit;
+	}
+		
 }
 
 //Suppression d'un message
