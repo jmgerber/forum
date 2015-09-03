@@ -19,5 +19,14 @@ else
 			$error = $e->getMessage();
 		}
 	}
+
+	//Suppression d'une catégorie
+	if (isset($_POST['delete'], $_GET['id']))
+	{
+		$manager = new CategorieManager($link);
+		$manager->delete($_GET['id']);
+	}
+
+	//Modification d'un catégorie
 }
 ?>
