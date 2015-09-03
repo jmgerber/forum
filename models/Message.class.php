@@ -59,7 +59,7 @@ class Message
 	public function setContenu($contenu)
 	{
 		if(strlen($contenu) > 0)
-			$this->contenu = mysqli_real_escape_string($this->link, $contenu);
+			$this->contenu = $contenu;
 		else
 			throw new Exception("Le contenu du message est vide");
 	}
