@@ -3,19 +3,19 @@
 	<div class="row">
 		<div class="col-md-2">
 			<div class="avatar">
-				<img class="thumbnail" src="<?=htmlentities($avatar)?>" alt="">
+				<img class="thumbnail" src="<?=htmlentities($user->getAvatar())?>" alt="">
 			</div>
 		</div>
 		<div class="col-md-10">
 			<div class="row">
 				<div class="col-md-5">
-					<p><strong><?=htmlentities($login)?></strong></p>
+					<p><strong><?=htmlentities($user->getLogin())?></strong></p>
 				</div>
 				<div class="col-md-5">
 					<p><em><?=$date?></em></p>
 				</div>
 			</div>
-			<div class="wrapper-message"><p><?=nl2br(htmlentities($contenu))?></p></div>
+			<div class="wrapper-message"><p><?=nl2br(htmlentities($message->getContenu()))?></p></div>
 		</div>
 	</div>
 	<?php require('./apps/modify-message.php'); ?>
