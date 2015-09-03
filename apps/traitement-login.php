@@ -15,6 +15,7 @@ try
 				if(password_verify($password, $list->getPassword()) == TRUE)
 				{
 					$_SESSION['id'] = $list->getId();
+					$_SESSION['statut'] = $list->getStatut();
 					if ($list->getStatut() == 1){
 						$_SESSION['admin'] = TRUE;
 					}
