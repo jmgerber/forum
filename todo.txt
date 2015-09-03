@@ -3,14 +3,8 @@ Views :
 		Modifier la ligne 5 en utilisant les objets : <?=htmlentities($topic['titre'])?> -> $topic->getTitle()
 	/home/was1/sites/developpement/php/forum/1001 Viandes/views/topic.phtml
 		Modifier la ligne 2 en utilisant les objets : <?=htmlentities($categoryName)?> -> $category->getName()
-	/home/was1/sites/developpement/php/forum/1001 Viandes/views/modify-message.phtml
-		Modifier la ligne 3 en utilisant les objets : <?=$id?> -> $message->getId()
-	/home/was1/sites/developpement/php/forum/1001 Viandes/views/display-messages.phtml
-		Modifier la ligne 6 en utilisant les objets : <?=htmlentities($avatar)?> -> $user->getAvatar()
-		Modifier la ligne 12 en utilisant les objets : <?=htmlentities($login)?> -> $user->getLogin()
-		Modifier la ligne 18 en utilisant les objets : <?=nl2br(htmlentities($contenu))?> -> $message->getContent()
-	/home/was1/sites/developpement/php/forum/1001 Viandes/views/add-message.phtml
-		Modifier la ligne 3 en utilisant les objets : <?=$id?> -> $message->getId()
+	
+	
 	/home/was1/sites/developpement/php/forum/1001 Viandes/views/messages.phtml
 		Modifier la ligne 4 en utilisant les objets : <?=htmlentities($categoryName)?> -> $category->getName()
 		Modifier la ligne 4 en utilisant les objets : <?=htmlentities($topicName)?> -> $topic->getName()
