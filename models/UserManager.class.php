@@ -81,10 +81,22 @@ class UserManager
 		return $resultat;
 	}
 
-	//Si un utilisateur a plus de 3 messages signalés, il est banni
-	public function banUser($id)
+	//Fonction qui insère un utilisateur dans la table bannis
+	public function bannirUser($id)
 	{
-		$this->selectAll();
+		$request = "INSERT INTO bannis VALUES (NULL, '".intval($id)."')";
+		$res = mysqli_query($this->link, $request);
+		if($res)
+			return $this->select(mysqli_insert_id($this->link));
+		else
+			throw new Exception("Internal server error");
+	}
+
+	//Fonction 
+	public function autoriserUser($id)
+	{
+		$request = "DELETE FROM bannis WHERE id_user='".intval($id)."'";
+		$res = mysqli_query($this->link, $request);
 	}
 }
 ?>
