@@ -4,12 +4,12 @@
 		<h4><?=htmlentities($result->getCategory());?></h4>
 	</div>
 	<div class="col-md-5">
-		<form action="" method="post">
+		<form action="gestion/<?=$result->getId()?>" method="post">
 			<div class="col-md-2">
-				<button class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button>
+				<button name="update" class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button>
 			</div>
 			<div class="col-md-2">
-				<button class="btn btn-danger" type="submit"><i class="fa fa-times"></i></button>
+				<button name="delete" class="btn btn-danger" type="submit"><i class="fa fa-times"></i></button>
 			</div>
 		</form>
 	</div>
