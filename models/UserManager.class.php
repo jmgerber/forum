@@ -80,5 +80,12 @@ class UserManager
 		}
 		return $resultat;
 	}
+
+	//Si un utilisateur a plus de 3 messages signalés, il est banni
+	public function banUser()
+	{
+		//Chercher les messages de l'utilisateur et récupérer les signalements
+		//Insérer l'utilisateur dans la table Bannis
+	}
 }
 ?>
