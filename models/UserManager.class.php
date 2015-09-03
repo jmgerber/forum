@@ -82,9 +82,9 @@ class UserManager
 	}
 
 	//Fonction qui insère un utilisateur dans la table bannis
-	public function bannirUser($id)
+	public function ban($user)
 	{
-		$request = "INSERT INTO bannis VALUES (NULL, '".intval($id)."')";
+		$request = "INSERT INTO bannis VALUES (NULL, '".intval($user->getId())."')";
 		$res = mysqli_query($this->link, $request);
 		if($res)
 			return $this->select(mysqli_insert_id($this->link));
@@ -92,10 +92,10 @@ class UserManager
 			throw new Exception("Internal server error");
 	}
 
-	//Fonction 
-	public function autoriserUser($id)
+	//Fonction qui autorise un utilisateur
+	public function unban($user)
 	{
-		$request = "DELETE FROM bannis WHERE id_user='".intval($id)."'";
+		$request = "DELETE FROM bannis WHERE id_user='".intval($user->getId())."'";
 		$res = mysqli_query($this->link, $request);
 	}
 }
