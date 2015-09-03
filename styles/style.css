@@ -90,3 +90,16 @@ header h1{
 
 
 /*CSS LAURENT*/
+
+.topic-remove{
+	margin-right : 10px;
+}
+
+.topic-header{
+	background: #222222;
+	color: #FFF;
+}
+
+.topic-header div{
+	padding: 5px 10px;
+}
