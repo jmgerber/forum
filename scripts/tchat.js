@@ -50,29 +50,29 @@
 // }
 // $('input').keyup(sendMessage);
 
-var message = encodeURIComponent( $('#message').val() );
 
-if(pseudo != "" && message != ""){ // on vérifie que les variables ne sont pas vides
-    $.ajax({
-        url : "home", // on donne l'URL du fichier de traitement
-        type : "POST", // la requête est de type POST
-        data : "&message=" + message // et on envoie nos données
-    });
-}
+// $('#tchatForm').submit(function(e){
+//     e.preventDefault(); // on empêche le bouton d'envoyer le formulaire
+// 	// on sécurise les données
+//     var message = $('#message').val();
+//     if(message != ""){ // on vérifie que les variables ne sont pas vides
+//         $.post("home",{message : message}, function(data)
+//         {
+//             var content = $('<div>'+data+'</div>').find('.tchat').html();
+//             $('.tchat').html(content);
+//         });
+//     }
+// });
 
-$('#envoi').click(function(e){
+$('#tchatForm').submit(function(e){
     e.preventDefault(); // on empêche le bouton d'envoyer le formulaire
-	// on sécurise les données
-    var message = encodeURIComponent( $('#message').val() );
+    var url = $(this).parents(".full-tchat").find("form").attr("action");
+    var message = $(this).parents(".full-tchat").find("#message").val();
 
-    if(pseudo != "" && message != ""){ // on vérifie que les variables ne sont pas vides
-        $.ajax({
-            url : "home", // on donne l'URL du fichier de traitement
-            type : "POST", // la requête est de type POST
-            data : "&message=" + message // et on envoie nos données
+    if(message != ""){
+        $(this).parents(".full-tchat").find(".tchat").prepend("<p>" + message + "</p>");
+        $.post(url, {message:message}, function(data){
         });
-
-       $('#tchat').append("<p>" + message + "</p>"); // on ajoute le message dans la zone prévue
     }
 });
 

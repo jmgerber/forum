@@ -28,5 +28,12 @@ else
 	}
 
 	//Modification d'un catégorie
+	if (isset($_POST['update'], $_POST['nom'], $_GET['id']))
+	{
+		$manager = new CategorieManager($link);
+		$category = $manager->select($_GET['id']);
+		$category->setTitre($_POST['nom']);
+		$manager->update($category);
+	}
 }
 ?>

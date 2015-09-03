@@ -5,5 +5,6 @@ $categoryName = $_GET['category'];
 $manager = new CategorieManager($link);
 $categorie = $manager->selectByName($categoryName);
 
+
 require ('./views/topic.phtml');
 ?>

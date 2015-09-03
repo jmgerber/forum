@@ -39,7 +39,7 @@ class Categorie
 	//**Methodes concernant le TopicManager**//
 	public function create($titre)
 	{
-		$topic = new Topics($this->link);
+		$topic = new Topic($this->link);
 		$topic->setTitre($titre);
 		$titre = mysqli_real_escape_string($this->link, $titre);
 		$request = "INSERT INTO topics (titre, id_auteur, id_category) VALUES ('".$titre."', '".$_SESSION['id']."', '".$this->id."')";
