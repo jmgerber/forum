@@ -14,13 +14,30 @@ try
 			if(!empty($list)){
 				if(password_verify($password, $list->getPassword()) == TRUE)
 				{
+					//Gestion des utilisateurs bannis
+					$users = $manager->selectBannis();
+					$i=0;
+					while (isset($users[$i]))
+					{
+						$user = $users[$i];
+						try
+						{
+							$user->isBanned());
+						}
+						catch(Exception $e)	
+						{
+							$error = $e->getMessage();
+						}
+						$i++;
+					}
+
 					$_SESSION['id'] = $list->getId();
 					$_SESSION['statut'] = $list->getStatut();
 					if ($list->getStatut() == 1){
 						$_SESSION['admin'] = TRUE;
 					}
-					header('Location: home');
-					exit;
+					// header('Location: home');
+					// exit;
 				}
 				else
 				{

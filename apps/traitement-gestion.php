@@ -46,6 +46,15 @@ else
 	}
 
 	//Bannir ou autoriser un nouvel utlisateur
-	
+	if (isset($_POST['bannir'], $_GET['id']))
+	{
+		var_dump($_POST);
+		var_dump($_GET);
+		$manager = new UserManager($link);
+		$user = $manager->selectById($_GET['id']);
+		$manager->ban($user);
+		$_SESSION['success'] = "Utilisateur banni !";
+
+	}
 }
 ?>
