@@ -4,25 +4,30 @@
     <fieldset>
         <div class="form-group">
             <label for="login">Login</label>
-            <input type="text" class="form-control" id="login" name="login" placeholder="Votre login">
+            <input type="text" class="form-control" id="login" name="login" value="<?=$user->getLogin()?>">
         </div>
         <div class="form-group">
             <label for="email">Adresse email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Votre mail">
+            <input type="email" class="form-control" id="email" name="email" value="<?=$user->getEmail()?>">
         </div>
         <div class="form-group">
+            <label for="avatar">Avatar</label>
+            <input type="text" class="form-control" id="avatar" name ="avatar" value="<?=$user->getAvatar   ()?>">
+        </div>
+        <h3>Changement de mot de passe</h3>
+        <div class="form-group">
             <label for="oldpassword">Ancien mot de passe</label>
-            <input type="password" class="form-control" id="oldpassword" name ="oldpassword" placeholder="Votre mot de passe" value="">
+            <input type="password" class="form-control" id="oldpassword" name ="oldPassword" value="">
         </div>
         <div class="form-group">
             <label for="password1">Mot de passe</label>
-            <input type="password" class="form-control" id="password1" name ="password1" placeholder="Votre mot de passe" value="">
+            <input type="password" class="form-control" id="password1" name ="newPassword1" value="">
         </div>
         <div class="form-group">
             <label for="password2">Mot de passe (confirmation)</label>
-            <input type="password" class="form-control" id="password2" name ="password2" placeholder="Confirmer votre mot de passe" value="">
+            <input type="password" class="form-control" id="password2" name ="newPassword2" value="">
         </div>
     </fieldset>
     <p class="bg-success" role="alert"><?=htmlentities($success)?></p>
-    <button name="validate" type="submit" class="btn btn-default">Enregistrer</button>
+    <button name="update" type="submit" class="btn btn-default">Enregistrer</button>
 </form>
