@@ -17,7 +17,21 @@ try
 				if(password_verify($password, $user->getPassword()) == TRUE)
 				{
 					if ($user->isBanned())
-						throw new Exception("Votre compte a été suspendu pour 5 jours.");
+					{
+						if (((strtotime($user->getBanDate()))+60) < time())
+						{
+							$manager->unban($user);
+							$_SESSION['id'] = $user->getId();
+							$_SESSION['statut'] = $user->getStatut();
+							if ($user->getStatut() == 1){
+								$_SESSION['admin'] = TRUE;
+							}
+							header('Location: home');
+							exit;
+						}
+						else
+ 							throw new Exception("Votre compte a été suspendu pour 5 minutes.");
+					}
 					else
 					{
 						$_SESSION['id'] = $user->getId();
