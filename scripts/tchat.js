@@ -15,15 +15,12 @@ $('#tchatForm').submit(function(e){
 
 setInterval(function()
 {
-	refreshMessages("http://localhost/forum/tchat");
+	refreshMessages("tchat");
 }, 1000);
-function refreshMessages(url)
+
+function refreshMessages()
 {
-	$.get(url, {refresh:true}, function(data){
+	$.get("tchat", {refresh:true}, function(data){
     	$('.tchat').html(data);
     });
 }
-
-// function refresh(){
-
-// }
