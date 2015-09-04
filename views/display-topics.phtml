@@ -7,7 +7,7 @@
 	<div class="col-md-2">
 		<form method="post" action="topic/<?=$topic->getId()?>">
 		<button name="modify" class="topic-modify" type="submit"><i class="fa fa-pencil-square-o"></i></button>
-		<button name="remove" class="topic-remove"type="submit"><i class="fa fa-times"></i></button>
+		<?php require ('./apps/remove-topic.php'); ?>
 		</form>
 	</div>
 </article>

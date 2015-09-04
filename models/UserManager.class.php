@@ -87,7 +87,8 @@ class UserManager
 	//Fonction qui insère un utilisateur dans la table bannis
 	public function ban($user)
 	{
-		$request = "INSERT INTO bannis VALUES (NULL, '".intval($user->getId())."')";
+		$date = time()+60;
+		$request = "INSERT INTO bannis VALUES (NULL, '".intval($user->getId())."', '".$date."')";
 		$res = mysqli_query($this->link, $request);
 		if($res)
 			return $this->select(mysqli_insert_id($this->link));
