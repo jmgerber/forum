@@ -52,11 +52,11 @@ class UserManager
 
 	public function select($login)
 	{
-		$request = "SELECT * FROM user WHERE login = '".$login."'";
+		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id WHERE login='".$login."'";
 		$res = mysqli_query($this->link, $request);
 		if($res){
-			$categorie = mysqli_fetch_object($res, 'User', array($this->link));
-			return $categorie;
+			$user = mysqli_fetch_object($res, 'User', array($this->link));
+			return $user;
 		}
 		else{
 			throw new Exception("L'utilisateur n'existe pas");
@@ -65,7 +65,8 @@ class UserManager
 
 	public function selectById($id)
 	{
-		$request = "SELECT * FROM user WHERE id = '".$id."'";
+		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id WHERE user.id = '".$id."'";
+		echo $request;
 		$res = mysqli_query($this->link, $request);
 		$user = mysqli_fetch_object($res, 'User', array($this->link));
 		return $user;
@@ -74,7 +75,7 @@ class UserManager
 
 	public function selectAll()
 	{
-		$request = "SELECT * FROM user";
+		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while ($user = mysqli_fetch_object($res, "User", array($this->link)))
@@ -87,11 +88,13 @@ class UserManager
 	//Fonction qui insère un utilisateur dans la table bannis
 	public function ban($user)
 	{
-		$date = time()+60;
-		$request = "INSERT INTO bannis VALUES (NULL, '".intval($user->getId())."', '".$date."')";
+		$request = "INSERT INTO bannis (id_user) VALUES ('".intval($user->getId())."')";
 		$res = mysqli_query($this->link, $request);
 		if($res)
+		{
 			return $this->select(mysqli_insert_id($this->link));
+			$success = "Utilisateur banni !";
+		}
 		else
 			throw new Exception("Internal server error");
 	}

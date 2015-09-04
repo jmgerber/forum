@@ -8,6 +8,7 @@ class User
 	private $password;
 	private $avatar;
 	private $statut;
+	private $ban_date;
 	private $link;
 
 	public function  __construct($link)
@@ -77,6 +78,10 @@ class User
 	{
 		$this->statut = intval($statut);
 	}
+	public function setBanDate($date)
+	{
+		$this->ban_date = $date;
+	}
 
 	//AUTRES
 	public function modifyPassword($oldPassword, $newPassword)
@@ -90,24 +95,33 @@ class User
 			throw new Exception("L'ancien mot de passe ne correspond pas.");
 		}
 	}
-	public function addBanni($id)
-	{
-		$request = "INSERT INTO bannis VALUES(NULL, '".intval($id)."')";
-		$res = mysqli_query($this->link, $request);
-		if($res)
-			return $this->select(mysqli_insert_id($this->link));
-		else
-			throw new Exception("Une erreur est survenue lors de l'ajout");		
-	}
 
-	public function deleteBanni($id)
+	public function isBanned()
 	{
-		$request = "DELETE FROM bannis WHERE id='".intval($id)."'";
-		$res = mysqli_query($this->link, $request);
-		if($res)
-			return $this->select(mysqli_insert_id($this->link));
+		if ($this->ban_date !== NULL)
+			return true;
 		else
-			throw new Exception("Une erreur est survenue lors du retrait");		
+			return false;
 	}
+	
+	// public function addBanni($id)
+	// {
+	// 	$request = "INSERT INTO bannis VALUES(NULL, '".intval($id)."')";
+	// 	$res = mysqli_query($this->link, $request);
+	// 	if($res)
+	// 		return $this->select(mysqli_insert_id($this->link));
+	// 	else
+	// 		throw new Exception("Une erreur est survenue lors de l'ajout");		
+	// }
+
+	// public function deleteBanni($id)
+	// {
+	// 	$request = "DELETE FROM bannis WHERE id='".intval($id)."'";
+	// 	$res = mysqli_query($this->link, $request);
+	// 	if($res)
+	// 		return $this->select(mysqli_insert_id($this->link));
+	// 	else
+	// 		throw new Exception("Une erreur est survenue lors du retrait");		
+	// }
 }
 ?>
