@@ -5,8 +5,8 @@
 		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
 	<div class="col-md-2">
-		<form method="post" action="topic/<?=$topic->getId()?>/modify">
-		<button name="modify" class="topic-modify" type="submit"><i class="fa fa-pencil-square-o"></i></button>
+		<form method="post" action="topic/<?=$topic->getId()?>">
+		<button name="modify" class="topic-modify" type="button"><a href="topic/<?=$topic->getId()?>?modify"><i class="fa fa-pencil-square-o"></i></a></button>
 		<?php require ('./apps/remove-topic.php'); ?>
 		</form>
 	</div>
