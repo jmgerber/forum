@@ -76,15 +76,15 @@ $('#tchatForm').submit(function(e){
     }
 });
 
-function refresh(){
-    $.ajax({
-        url: "tchat",
-        success:
-            function(retour){
-            $('.tchat').html(retour);
-        }
-    });
-}
+// function refresh(){
+//     $.ajax({
+//         url: "",
+//         success:
+//             function(retour){
+//             $('.tchat').html(retour);
+//         }
+//     });
+// }
 
-setInterval(refresh(), 500);
+// setInterval(refresh(), 500);
 
