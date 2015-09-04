@@ -27,9 +27,10 @@ if (isset($_POST['remove'], $_GET['id']))
 	$manager = new Categorie($link);
 	$topic= $manager->selectById($_GET['id']);
 	$id = $topic->getId();
+	$manager->delete($id);
 
-	$manger
+
 	var_dump($topic);
-
+	header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$topic->getCategory()->getCategory());
 }
 ?>
