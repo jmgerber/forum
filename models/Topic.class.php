@@ -135,5 +135,12 @@ class Topic
 		}
 		return $resultat;
 	}
+	public function count($id_topic)
+	{
+		$request = "SELECT COUNT(*) FROM messages WHERE id_topic = '".$id_topic."'";
+		$res = mysqli_query($this->link, $request);
+		$count = mysqli_fetch_assoc($res);
+		return $count;
+	}
 }
 ?>

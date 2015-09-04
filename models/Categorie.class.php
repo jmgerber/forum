@@ -51,7 +51,7 @@ class Categorie
 	}
 	public function delete($id)
 	{
-		$request = "DELETE FROM topics WHERE id_category='".$this->id."'";
+		$request = "DELETE FROM topics WHERE id ='".intval($id)."'";
 		mysqli_query($this->link, $request);
 	}
 	public function update($topics)
