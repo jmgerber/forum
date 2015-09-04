@@ -31,14 +31,15 @@ if (isset($_POST['remove'], $_GET['id']))
 	$manager->delete($id);
 
 
-	var_dump($topic);
+	
 	header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$topic->getCategory()->getCategory());
+	exit;
 }
 
 //modification d'un topic
 if (isset($_GET['modify']))
 {
-	require ('./apps/modify-topic.php');
+	//require ('./apps/modify-topic.php');
 }
 
 ?>

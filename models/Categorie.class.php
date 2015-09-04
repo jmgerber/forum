@@ -16,7 +16,7 @@ class Categorie
 	}
 
 
-	// Méthodes de la class Message
+	// Méthodes de la class Categorie
 	// GETTER
 	public function getId()
 	{
