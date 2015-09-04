@@ -9,7 +9,18 @@
 		<div class="col-md-10">
 			<div class="row">
 				<div class="col-md-5">
-					<p><strong><?=htmlentities($user->getLogin())?></strong></p>
+					<?php 
+					if(isset($_SESSION['id'])){
+					?>
+						<p><a href='membre/<?=$user->getId()?>'><strong><?=htmlentities($user->getLogin())?></strong></a></p>
+					<?php
+					}
+					else{
+					?>
+						<p><strong><?=htmlentities($user->getLogin())?></strong></p>
+					<?php 
+					}
+					?>
 				</div>
 				<div class="col-md-5">
 					<p><em><?=$date?></em></p>

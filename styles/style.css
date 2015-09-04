@@ -50,6 +50,12 @@ img{max-width: 100%;}
 	font-size: 0.9em;
 }
 
+.img-profil
+{
+	margin-right: 10px;
+	float: left;
+}
+
 /*CSS JEROME*/
 body{
 	font-family: Roboto;
