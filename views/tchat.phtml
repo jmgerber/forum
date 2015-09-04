@@ -19,8 +19,12 @@
 	if(isset($_SESSION['id'])){ 
 	?>
 	<form action="tchat" method="POST" id="tchatForm">
-		<input type="text" name="message" placeholder="Votre message" id="message" class="form-control">
-		<input type="submit" name="submit" value="Ok">
+		<div class="input-group">
+			<input type="text" name="message" placeholder="Votre message" id="message" class="form-control">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="submit" name="submit">Ok</button>
+			</span>
+		</div>
 	</form>
 	<?php
 	}
