@@ -42,6 +42,10 @@ class User
 	{
 		return $this->statut;
 	}
+	public function getBanDate()
+	{
+		return $this->ban_date;
+	}
 
 	//SETTER
 	public function setLogin($login)
