@@ -1,6 +1,4 @@
 <?php
-if (isset($_SESSION['id']))
-{
 	require ('./views/modify-topic.phtml');
 	// if (if($_SESSION['id'] != $topic['id_auteur'])
  // 	{
@@ -10,6 +8,4 @@ if (isset($_SESSION['id']))
  // 	{
  // 		require ('./views/modify-topic.phtml');
  // 	}
-}
-
 ?>
