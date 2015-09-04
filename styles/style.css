@@ -88,6 +88,14 @@ header h1{
 	text-decoration: underline;
 }
 
+.wrapper-droits{
+	padding: 5px;
+}
+
+.wrapper-droits p{
+	margin: 0;
+	padding: 5px;
+}
 
 /*CSS LAURENT*/
 
