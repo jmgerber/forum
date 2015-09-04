@@ -46,5 +46,6 @@ else
 	}
 
 	//Bannir ou autoriser un nouvel utlisateur
+	
 }
 ?>

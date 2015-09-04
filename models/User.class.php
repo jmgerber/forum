@@ -83,7 +83,7 @@ class User
 	{
 		if ($this->verifPassword($oldPassword))
 		{
-			$this->password =  password_hash($newPassword, PASSWORD_BCRYPT, array("cost"=>10));
+			$this->password = password_hash($newPassword, PASSWORD_BCRYPT, array("cost"=>10));
 		}
 		else
 		{
