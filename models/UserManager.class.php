@@ -52,11 +52,11 @@ class UserManager
 
 	public function select($login)
 	{
-		$request = "SELECT * FROM user WHERE login = '".$login."'";
+		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id WHERE login='".$login."'";
 		$res = mysqli_query($this->link, $request);
 		if($res){
-			$categorie = mysqli_fetch_object($res, 'User', array($this->link));
-			return $categorie;
+			$user = mysqli_fetch_object($res, 'User', array($this->link));
+			return $user;
 		}
 		else{
 			throw new Exception("L'utilisateur n'existe pas");
@@ -65,7 +65,7 @@ class UserManager
 
 	public function selectById($id)
 	{
-		$request = "SELECT * FROM user WHERE id = '".$id."'";
+		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id WHERE id = '".$id."'";
 		$res = mysqli_query($this->link, $request);
 		$user = mysqli_fetch_object($res, 'User', array($this->link));
 		return $user;
@@ -74,19 +74,7 @@ class UserManager
 
 	public function selectAll()
 	{
-		$request = "SELECT * FROM user";
-		$res = mysqli_query($this->link, $request);
-		$resultat = array();
-		while ($user = mysqli_fetch_object($res, "User", array($this->link)))
-		{
-			$resultat[] = $user;
-		}
-		return $resultat;
-	}
-	
-	public function selectBannis()
-	{
-		$request = "SELECT user.id, login, email, password, avatar, statut, ban_date FROM bannis LEFT JOIN user ON bannis.id_user=user.id";
+		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while ($user = mysqli_fetch_object($res, "User", array($this->link)))

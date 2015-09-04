@@ -10,9 +10,11 @@ try
 			$login = mysqli_real_escape_string($link, $_POST['login']);
 			$password = $_POST['password'];
 			$manager = new UserManager($link);
-			$list = $manager->select($login);
-			if(!empty($list)){
-				if(password_verify($password, $list->getPassword()) == TRUE)
+			$user = $manager->select($login);
+			if($user)
+			{
+				// $user->verifPassword($password);
+				if(password_verify($password, $user->getPassword()) == TRUE)
 				{
 					//Gestion des utilisateurs bannis
 					$users = $manager->selectBannis();
@@ -22,7 +24,7 @@ try
 						$user = $users[$i];
 						try
 						{
-							$user->isBanned());
+							$user->isBanned();
 						}
 						catch(Exception $e)	
 						{
@@ -31,9 +33,9 @@ try
 						$i++;
 					}
 
-					$_SESSION['id'] = $list->getId();
-					$_SESSION['statut'] = $list->getStatut();
-					if ($list->getStatut() == 1){
+					$_SESSION['id'] = $user->getId();
+					$_SESSION['statut'] = $user->getStatut();
+					if ($user->getStatut() == 1){
 						$_SESSION['admin'] = TRUE;
 					}
 					// header('Location: home');

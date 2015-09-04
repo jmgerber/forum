@@ -8,8 +8,8 @@ class User
 	private $password;
 	private $avatar;
 	private $statut;
+	private $ban_date;
 	private $link;
-	public $ban_date;
 
 	public function  __construct($link)
 	{
@@ -41,10 +41,6 @@ class User
 	public function getStatut()
 	{
 		return $this->statut;
-	}
-	public function getBanDate()
-	{
-		return $this->ban_date;
 	}
 
 	//SETTER
