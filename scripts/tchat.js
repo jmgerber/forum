@@ -71,20 +71,13 @@ $('#tchatForm').submit(function(e){
 
     if(message != ""){
         $(this).parents(".full-tchat").find(".tchat").prepend("<p>" + message + "</p>");
-        $.post(url, {message:message,submit:true}, function(data){
+        $.post(url, {message:message, submit:true}, function(data){
         });
     }
 });
 
-// function refresh(){
-//     $.ajax({
-//         url: "",
-//         success:
-//             function(retour){
-//             $('.tchat').html(retour);
-//         }
-//     });
-// }
+function refresh(){
+    
+}
 
-// setInterval(refresh(), 500);
-
+// setInterval(refresh(), 1000);
