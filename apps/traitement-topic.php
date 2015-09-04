@@ -4,7 +4,7 @@ if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 {
 	$manager = new CategorieManager($link);
 	$categorie = $manager->select($_GET['id']);
-	// var_dump($topic);
+	var_dump($categorie);
 	try
 	{
 		$categorie->create($_POST['titreTopic']);
@@ -18,7 +18,7 @@ if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 }
 else
 {
-header ('Location: home/$categorie');
+header ('Location: home/$category');
 exit;
 }
 
