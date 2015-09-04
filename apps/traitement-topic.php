@@ -1,25 +1,20 @@
 <?php
-
 if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 {
 	$manager = new CategorieManager($link);
 	$categorie = $manager->select($_GET['id']);
-	// var_dump($topic);
 	try
 	{
-		$categorie->create($_POST['titreTopic']);
+		$topic = $categorie->create($_POST['titreTopic']);
 	}
 	catch(Exception  $exception)
 	{
 		$error = $exception->getMessage();
-	
 	}
-
+	if (empty($error))
+	{
+		header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$categorie->getCategory().'/'.$topic->getTitre());
+		exit;
+	}
 }
-else
-{
-header ('Location: home/$categorie');
-exit;
-}
-
 ?>
