@@ -71,9 +71,8 @@ class Topic
 	public function create($contenu)
 	{
 		$message = new Message($this->link);
-		$message->setContenu($contenu);
-
 		$contenu = mysqli_real_escape_string($this->link, $contenu);
+		$message->setContenu($contenu);		
 		$id_auteur = $_SESSION['id'];
 		$id_topic = $this->id;
 		$request = "INSERT INTO messages (contenu, id_auteur, id_topic)
