@@ -1,8 +1,8 @@
 <h2>Profil de <?=$infos->getLogin()?></h2>
-<div>
-	<div class="img-profil">
+<div class="row">
+	<div class="col-md-4">
 		<img src="<?=$infos->getAvatar()?>" alt="" class="img-thumbnail">
+		<p><b>Email</b> : <?=$infos->getEmail()?> </p>
+		<p><b>Statut</b> : <?=$statut?></p>
 	</div>
-	<p><b>Email</b> : <?=$infos->getEmail()?> </p>
-	<p><b>Statut</b> : <?=$statut?></p>
 </div>
