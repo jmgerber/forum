@@ -78,6 +78,7 @@ class Categorie
 
 	public function selectByName($topic)
 	{
+		$topic = mysqli_real_escape_string($this->link, $topic);
 		$request = "SELECT * FROM topics WHERE titre ='".$topic."' AND id_category='".$this->id."'";
 		$res = mysqli_query($this->link, $request);
 		$topic = mysqli_fetch_object($res, 'Topic', array($this->link));
