@@ -2,12 +2,10 @@
 class UserManager
 {
 	private $link; 
-
 	public function __construct($link)
 	{
 		$this->link = $link;
 	}
-
 	public function create($login, $email, $password, $avatar)
 	{
 		$user = new User($this->link);
@@ -26,13 +24,11 @@ class UserManager
 		else
 			throw new Exception("Internal server error");
 	}
-
 	public function delete($id)
 	{
 		$request = "DELETE FROM user WHERE id ='".intval($id)."'";
 		mysqli_query($this->link, $request);
 	}
-
 	public function update($user)
 	{
 		$login = mysqli_real_escape_string($this->link, $user->getLogin());
@@ -49,7 +45,6 @@ class UserManager
 			WHERE id ='".$user->getId()."'";
 		mysqli_query($this->link, $request);
 	}
-
 	public function select($login)
 	{
 		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id WHERE login='".$login."'";
@@ -62,7 +57,6 @@ class UserManager
 			throw new Exception("L'utilisateur n'existe pas");
 		}
 	}
-
 	public function selectById($id)
 	{
 		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id WHERE user.id = '".$id."'";
@@ -70,8 +64,6 @@ class UserManager
 		$user = mysqli_fetch_object($res, 'User', array($this->link));
 		return $user;
 	}
-
-
 	public function selectAll()
 	{
 		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id";
@@ -83,7 +75,6 @@ class UserManager
 		}
 		return $resultat;
 	}
-
 	//Fonction qui insère un utilisateur dans la table bannis
 	public function ban($user)
 	{
@@ -97,7 +88,6 @@ class UserManager
 		else
 			throw new Exception("Internal server error");
 	}
-
 	//Fonction qui autorise un utilisateur
 	public function unban($user)
 	{
