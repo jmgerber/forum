@@ -83,15 +83,29 @@ class UserManager
 		}
 		return $resultat;
 	}
+	
+	public function selectBannis()
+	{
+		$request = "SELECT user.id, login, email, password, avatar, statut, ban_date FROM bannis LEFT JOIN user ON bannis.id_user=user.id";
+		$res = mysqli_query($this->link, $request);
+		$resultat = array();
+		while ($user = mysqli_fetch_object($res, "User", array($this->link)))
+		{
+			$resultat[] = $user;
+		}
+		return $resultat;
+	}
 
 	//Fonction qui insère un utilisateur dans la table bannis
 	public function ban($user)
 	{
-		$date = time()+60;
-		$request = "INSERT INTO bannis VALUES (NULL, '".intval($user->getId())."', '".$date."')";
+		$request = "INSERT INTO bannis (id_user) VALUES ('".intval($user->getId())."')";
 		$res = mysqli_query($this->link, $request);
 		if($res)
+		{
 			return $this->select(mysqli_insert_id($this->link));
+			$success = "Utilisateur banni !";
+		}
 		else
 			throw new Exception("Internal server error");
 	}
