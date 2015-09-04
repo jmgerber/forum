@@ -41,5 +41,4 @@ if (isset($_GET['modify']))
 {
 	//require ('./apps/modify-topic.php');
 }
-
 ?>

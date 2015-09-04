@@ -3,14 +3,29 @@ $manager = new TchatManager($link);
 if(isset($_POST['submit'])){
 
 	if(!empty($_POST['message'])){
-		$message = mysqli_real_escape_string($link, $_POST['message']);
-		$tchat = $manager->create($message);
+		$tchat = $manager->create($_POST['message']);
 	}
 	else{
 		echo "Veuillez entrer un message";
 	}
 	exit;
 }
-$messages = $manager->selectLast();
-require("./apps/tchat.php");
+else if (isset($_GET['refresh']))
+{
+	$list = $manager->selectLast();
+	$i = 0;
+	$res = '';
+	while (isset($list[$i]))
+	{
+		$message = $list[$i];
+		$res .= '<p>
+				<span class="tchat_date">['.$message->getDate().']</span>
+				<span class="tchat_auteur">'.$message->getAuteur()->getLogin().'</span> : 
+				<span class="tchat_message">'.$message->getMessage().'</span>
+			</p>';
+		$i++;
+	}
+	echo $res;
+	exit;
+}
 ?>

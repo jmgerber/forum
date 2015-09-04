@@ -11,8 +11,7 @@ class TchatManager
 	public function create($message)
 	{
 		$tchat = new Tchat($this->link);
-		$tchat->setMessage($message);
-
+		$tchat->setMessage($message); 
 		$message = mysqli_real_escape_string($this->link, $tchat->getMessage());
 		$request = "INSERT INTO tchat (message, id_auteur)
 		VALUES ('".$message."', '".$_SESSION['id']."')";
