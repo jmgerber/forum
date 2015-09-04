@@ -30,6 +30,8 @@ img{max-width: 100%;}
 .tchat
 {
 	border: 2px solid #333;
+	background: #eee;
+	padding: 5px;
 	height: 400px;
 	overflow-y: scroll;
 }
