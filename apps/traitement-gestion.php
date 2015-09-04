@@ -35,5 +35,14 @@ else
 		$category->setTitre($_POST['nom']);
 		$manager->update($category);
 	}
+
+	//Modification des droits des utilisateurs
+	if (isset($_POST['update'], $_POST['statut'], $_GET['id']))
+	{
+		$manager = new UserManager($link);
+		$user = $manager->selectById($_GET['id']);
+		$user->setStatut($_POST['statut']);
+		$manager->update($user);
+	}
 }
 ?>
