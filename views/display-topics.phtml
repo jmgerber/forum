@@ -6,7 +6,7 @@
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
 	<div class="col-md-2">
 		<form method="post" action="topic/<?=$topic->getId()?>">
-		<button name="modify" class="topic-modify" type="submit"><i class="fa fa-pencil-square-o"></i></button>
+		<a href="topic/<?=$topic->getId()?>/modify"><button name="modify" class="topic-modify" type="submit"><i class="fa fa-pencil-square-o"></i></button></a>
 		<?php require ('./apps/remove-topic.php'); ?>
 		</form>
 	</div>
