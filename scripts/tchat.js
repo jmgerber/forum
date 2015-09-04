@@ -71,8 +71,20 @@ $('#tchatForm').submit(function(e){
 
     if(message != ""){
         $(this).parents(".full-tchat").find(".tchat").prepend("<p>" + message + "</p>");
-        $.post(url, {message:message}, function(data){
+        $.post(url, {message:message,submit:true}, function(data){
         });
     }
 });
+
+function refresh(){
+    $.ajax({
+        url: "tchat",
+        success:
+            function(retour){
+            $('.tchat').html(retour);
+        }
+    });
+}
+
+setInterval(refresh(), 500);
 
