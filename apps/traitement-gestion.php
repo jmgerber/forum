@@ -44,5 +44,7 @@ else
 		$user->setStatut($_POST['statut']);
 		$manager->update($user);
 	}
+
+	//Bannir ou autoriser un nouvel utlisateur
 }
 ?>
