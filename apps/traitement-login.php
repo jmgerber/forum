@@ -16,30 +16,18 @@ try
 				// $user->verifPassword($password);
 				if(password_verify($password, $user->getPassword()) == TRUE)
 				{
-					//Gestion des utilisateurs bannis
-					$users = $manager->selectBannis();
-					$i=0;
-					while (isset($users[$i]))
+					if ($user->isBanned())
+						throw new Exception("Votre compte a été suspendu pour 5 jours.");
+					else
 					{
-						$user = $users[$i];
-						try
-						{
-							$user->isBanned();
+						$_SESSION['id'] = $user->getId();
+						$_SESSION['statut'] = $user->getStatut();
+						if ($user->getStatut() == 1){
+							$_SESSION['admin'] = TRUE;
 						}
-						catch(Exception $e)	
-						{
-							$error = $e->getMessage();
-						}
-						$i++;
+						header('Location: home');
+						exit;
 					}
-
-					$_SESSION['id'] = $user->getId();
-					$_SESSION['statut'] = $user->getStatut();
-					if ($user->getStatut() == 1){
-						$_SESSION['admin'] = TRUE;
-					}
-					// header('Location: home');
-					// exit;
 				}
 				else
 				{

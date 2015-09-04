@@ -99,10 +99,7 @@ class User
 	public function isBanned()
 	{
 		if ($this->ban_date !== NULL)
-		{
-			throw new Exception("Votre compte a été suspendu pour 5 jours.");
 			return true;
-		}
 		else
 			return false;
 	}
