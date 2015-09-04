@@ -66,7 +66,6 @@ class UserManager
 	public function selectById($id)
 	{
 		$request = "SELECT user.*,bannis.ban_date FROM user LEFT JOIN bannis ON bannis.id_user=user.id WHERE user.id = '".$id."'";
-		echo $request;
 		$res = mysqli_query($this->link, $request);
 		$user = mysqli_fetch_object($res, 'User', array($this->link));
 		return $user;
