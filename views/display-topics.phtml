@@ -1,19 +1,6 @@
 <article class="row">
 	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
-	<div class="col-md-2">
-		<?php 
-		if(isset($_SESSION['id'])){
-		?>
-		<a href="membre/<?=$topic->getAuteur()->getId()?>"><?=htmlentities($topic->getAuteur()->getLogin())?></a>
-		<?php 
-		}
-		else{
-		?>
-		<?=htmlentities($topic->getAuteur()->getLogin())?>
-		<?php  
-		}
-		?>
-	</div>
+	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
 	
 		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
