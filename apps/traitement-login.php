@@ -30,7 +30,7 @@ try
 							exit;
 						}
 						else
- 							throw new Exception("Votre compte a été suspendu pour 5 minutes.");
+ 							throw new Exception("Votre compte a été suspendu pour 1 minute.");
 					}
 					else
 					{
