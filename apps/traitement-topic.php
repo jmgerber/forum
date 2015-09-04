@@ -36,4 +36,9 @@ if (isset($_POST['remove'], $_GET['id']))
 }
 
 //modification d'un topic
+
+if(isset($_GET['modify'])){
+	header('Location: ../modify-topic');
+	exit;
+}
 ?>
