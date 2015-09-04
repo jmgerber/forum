@@ -4,6 +4,7 @@ if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 {
 	$manager = new CategorieManager($link);
 	$categorie = $manager->select($_GET['id']);
+	// var_dump($topic);
 	try
 	{
 		$categorie->create($_POST['titreTopic']);
@@ -11,9 +12,14 @@ if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 	catch(Exception  $exception)
 	{
 		$error = $exception->getMessage();
+	
 	}
 
 }
-header ('Location: ./home');
+else
+{
+header ('Location: home/$categorie');
 exit;
+}
+
 ?>
