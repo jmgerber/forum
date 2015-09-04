@@ -75,7 +75,7 @@ class User
 	}
 	public function setStatut($statut)
 	{
-		$this->statut = $statut;
+		$this->statut = intval($statut);
 	}
 
 	//AUTRES
