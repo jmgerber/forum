@@ -1,0 +1,16 @@
+<div class="wrapper-droits">
+	<div class="row">
+		<div class="col-md-offset-1 col-md-2">
+			<p><strong><?=htmlentities($user->getLogin());?><strong></p>
+		</div>
+		<div class="col-md-9">
+			<form class="form-inline" action="gestion/<?=$user->getId()?>" method="post">
+				<div class="form-group">
+					<label for="statut"><?=$statut?></label>
+					<input id="statut" name="statut" type="number" value="<?=htmlentities($user->getStatut());?>" class="form-control">
+				</div>
+				<button name="update" id="modif" class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button>
+			</form>
+		</div>
+	</div>
+</div>

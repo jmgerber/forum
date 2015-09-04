@@ -1,8 +1,13 @@
 <div class="gestion">
 	<h1>Interface de gestion</h1>
 	<div>
-		<h2>Gestion des utilisateurs signalés</h2>
-		<div class="bannis">
+		<h2>Gestion des utilisateurs</h2>
+		<div>
+			<h3>Gestion des droits</h3>
+			<?php require('./apps/droits.php'); ?>
+		</div>
+		<div>
+			<h3>Gestion des utilisateurs signalés</h3>
 			<button name="bannir" type="submit" class="btn btn-danger"><strong>Bannir gigi</strong></button>
 		</div>
 	</div>
