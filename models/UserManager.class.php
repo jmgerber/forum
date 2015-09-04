@@ -38,6 +38,7 @@ class UserManager
 		$login = mysqli_real_escape_string($this->link, $user->getLogin());
 		$email = mysqli_real_escape_string($this->link, $user->getEmail());
 		$avatar = mysqli_real_escape_string($this->link, $user->getAvatar());
+		$statut = intval($user->getStatut());
 		$request = "UPDATE user SET
 		 	login = '".$login."',
 			email = '".$email."',
