@@ -15,9 +15,21 @@
 			</form>
 		</div>
 		<div class="col-md-2">
-			<form action="gestion/<?=$user->getId()?>" method="post">
-				<button name="bannir" class="btn btn-danger" type="submit">Suspendre</button>
-			</form>
+			<?php if ($user->isBanned())
+			{
+				?>
+				<p class="bg-success">Suspendu !</p>
+				<?php
+			}
+			else
+			{
+				?>
+				<form action="gestion/<?=$user->getId()?>" method="post">
+					<button name="bannir" class="btn btn-danger" type="submit">Suspendre</button>
+				</form>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 </div>

@@ -15,5 +15,4 @@ while (isset($users[$i]))
 		$statut = 'Modérateur [2]';
 	$i++;
 	require ('./views/droits.phtml');
-
 }

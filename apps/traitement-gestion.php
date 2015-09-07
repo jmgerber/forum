@@ -48,8 +48,7 @@ else
 	//Suspendre temporairement un utlisateur
 	if (isset($_POST['bannir'], $_GET['id']))
 	{
-		
-		$manager = new UserManager($link);
+ 		$manager = new UserManager($link);
 		$user = $manager->selectById($_GET['id']);
 		$manager->ban($user);
 

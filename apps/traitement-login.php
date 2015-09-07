@@ -18,6 +18,7 @@ try
 				{
 					if ($user->isBanned())
 					{
+						//Compte suspendu pour 60 secondes
 						if (((strtotime($user->getBanDate()))+60) < time())
 						{
 							$manager->unban($user);
