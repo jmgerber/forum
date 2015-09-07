@@ -4,7 +4,7 @@ while (isset($messages[$i]))
 {
 	$message = $messages[$i];
 	$i++;
-	require('./views/ban.phtml');
+	require('./views/signaled-message.phtml');
 	$_SESSION['success'] = "";
 }
 ?>

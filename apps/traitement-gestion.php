@@ -45,16 +45,23 @@ else
 		$manager->update($user);
 	}
 
-	//Bannir ou autoriser un nouvel utlisateur
+	//Suspendre temporairement un utlisateur
 	if (isset($_POST['bannir'], $_GET['id']))
 	{
-		var_dump($_POST);
-		var_dump($_GET);
+		
 		$manager = new UserManager($link);
 		$user = $manager->selectById($_GET['id']);
 		$manager->ban($user);
-		$_SESSION['success'] = "Utilisateur banni !";
 
+	}
+
+	//Réinitialiser le signalement d'un message
+	if (isset($_POST['reset'], $_GET['id']))
+	{
+		$topic = new Topic($link);
+		$message = $topic->selectById($_GET['id']);
+		$message->resetSignalement();
+		$topic->update($message);
 	}
 }
 ?>
