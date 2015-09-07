@@ -1,4 +1,5 @@
 <?php
+require('tools.php');
 //Variables pour les messages à afficher
 $error= "";
 $success = "";
@@ -27,7 +28,7 @@ if (isset($_GET['page']) && in_array($_GET['page'], $traitementList, true))
 }
 
 //Liste des pages existantes
-$pageList = array('home', 'login', 'logout', 'register', 'compte', 'categorie', 'topics', 'messages', 'gestion', 'tchat', 'membre', 'informations', 'modify-topic');
+$pageList = array('home', 'login', 'register', 'compte', 'categorie', 'topics', 'messages', 'gestion', 'tchat', 'membre', 'informations', 'modify-topic');
 $page = 'home';
 
 if (isset($_GET['page']) && in_array($_GET['page'], $pageList, true))

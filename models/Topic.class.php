@@ -125,7 +125,7 @@ class Topic
 
 	public function selectBySignal()
 	{
-		$request = "SELECT * from messages WHERE signalement > 3 ORDER BY signalement DESC";
+		$request = "SELECT * from messages WHERE signalement > 0 ORDER BY signalement DESC";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while ($message = mysqli_fetch_object($res, "Message", array($this->link)))
