@@ -54,10 +54,10 @@ class Categorie
 		$request = "DELETE FROM topics WHERE id ='".intval($id)."'";
 		mysqli_query($this->link, $request);
 	}
-	public function update($topics)
+	public function update($titre)
 	{
 		$titre = mysqli_real_escape_string($this->link, $topic->getTitre());
-		$request ="UPDATE topics SET titre='".$title."', WHERE id='".$topic->getId()."' AND id_category='".$this->id."'";
+		$request ="UPDATE topics SET titre='".$titre."', WHERE id='".$topic->getId()."' AND id_category='".$this->id."'";
 		mysqli_query($this->link, $request);
 	}
 	public function select($id)
