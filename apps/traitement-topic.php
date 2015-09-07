@@ -47,9 +47,10 @@ if (isset($_POST['validate']))
 	$manager = new Categorie($link);
 	$topic = $manager->selectById($_GET['id']);
 	$topic = $topic->getTitre();
+	var_dump($topic);
 
 	$manager->update($topic);
-	var_dump($_POST);
+
 }
 ?>
 
