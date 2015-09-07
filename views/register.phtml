@@ -1,7 +1,7 @@
 <h1>Inscription</h1>
 <p>Nouveau sur le forum ? Créer votre compte :</p>
 <p class="bg-danger"><?=$error?></p>
-<form method="post">
+<form method="post" enctype="multipart/form-data">
     <fieldset>
         <legend>Informations personnelles</legend>
         <div class="form-group">
@@ -24,6 +24,12 @@
             <label for="avatar">Avatar</label>
             <input type="text" class="form-control" id="avatar" name="avatar" placeholder="Entrez l'URL de l'avatar">
         </div>
+        <!-- <div class="form-group">
+            <label for="image">Avatar</label>
+            <input type="hidden" name="MAX_FILE_SIZE" value="1048756">
+            <input type="file" class="form-control" id="image" name="image">
+        </div> -->
+
     </fieldset>
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>
