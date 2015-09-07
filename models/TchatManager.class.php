@@ -42,5 +42,13 @@ class TchatManager
 		return $resultat;
 	}
 
+	public function selectLastMessage()
+	{
+		$request = "SELECT * FROM tchat ORDER BY id DESC LIMIT 1";
+		$res = mysqli_query($this->link, $request);
+		$message = mysqli_fetch_object($res, "Tchat", array($this->link));
+		return $message;
+	}
+
 }
 ?>
