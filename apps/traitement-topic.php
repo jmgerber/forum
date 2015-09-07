@@ -44,13 +44,19 @@ if (isset($_GET['modify']))
 
 if (isset($_POST['validate']))
 {
+	if ($_POST['titreTopic'] !== "" )
+	{
 	$manager = new Categorie($link);
 	$topic = $manager->selectById($_GET['id']);
 	$topic = $topic->getTitre();
-	var_dump($topic);
 
-	$manager->update($topic);
+	// $manager->update($topic);
 
+
+	$titre = mysqli_real_escape_string($this->link, $topic->getTitre());
+	$request ="UPDATE topics SET titre='".$titre."', WHERE id='".$topic->getId()."' AND id_category='".$this->id."'";
+	mysqli_query($this->link, $request);
+	}
 }
 ?>
 
