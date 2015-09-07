@@ -45,10 +45,10 @@ if (isset($_GET['modify']))
 if (isset($_POST['validate']))
 {
 	$manager = new Categorie($link);
-	$topic= $manager->selectById($_GET['id']);
-	$id = $topic->getId();
+	$topic = $manager->selectById($_GET['id']);
+	$topic = $topic->getTitre();
 
-	$manager->update($id);
+	$manager->update($topic);
 }
 ?>
 
