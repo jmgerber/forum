@@ -6,13 +6,30 @@
 		<div class="col-md-3">
 			<p><?=$statut;?></p>
 		</div>
-		<div class="col-md-5">
+		<div class="col-md-4">
 			<form class="form-inline" action="gestion/<?=$user->getId()?>" method="post">
 				<div class="form-group">
 					<input id="statut" name="statut" type="number" value="<?=htmlentities($user->getStatut());?>" class="form-control">
 				</div>
 				<button name="update" id="modif" class="btn btn-primary" type="submit"><i class="fa fa-pencil"></i></button>
 			</form>
+		</div>
+		<div class="col-md-2">
+			<?php if ($user->isBanned())
+			{
+				?>
+				<p class="bg-success">Suspendu !</p>
+				<?php
+			}
+			else
+			{
+				?>
+				<form action="gestion/<?=$user->getId()?>" method="post">
+					<button name="bannir" class="btn btn-danger" type="submit">Suspendre</button>
+				</form>
+				<?php
+			}
+			?>
 		</div>
 	</div>
 </div>

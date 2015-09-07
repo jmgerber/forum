@@ -83,7 +83,6 @@ class UserManager
 		if($res)
 		{
 			return $this->select(mysqli_insert_id($this->link));
-			$success = "Utilisateur banni !";
 		}
 		else
 			throw new Exception("Internal server error");
