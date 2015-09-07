@@ -7,7 +7,10 @@ var_dump($_GET);
 
 if (isset($_SESSION['id']))
 {
-	if ($_SESSION['admin'] == true || $_SESSION)
+	if ($_SESSION['admin'] == true || $user['staut'] == '2' || $_SESSION['id'] == $topic->getIdAuteur())
+	{
+		require ('./views/modify-topic.phtml');
+	}	
 }
-	require ('./views/modify-topic.phtml');
+	
 ?>
