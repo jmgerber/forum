@@ -85,6 +85,18 @@ class Categorie
 		return $topic;
 	}
 
+	public function searchTopics($string)
+	{
+		$string = mysqli_real_escape_string($this->link, $string);
+		$request = "SELECT * FROM topics WHERE titre LIKE '%".$string."%'";
+		$res = mysqli_query($this->link, $request);
+		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
+		{
+			$resultat[] = $topics;
+		}	
+		return $resultat;
+	}
+	
 	public function selectByIdAuteur($id)
 	{
 		$request = "SELECT * FROM topics WHERE id_auteur ='".$id."'";
