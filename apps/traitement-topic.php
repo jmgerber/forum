@@ -49,6 +49,7 @@ if (isset($_POST['validate']))
 	$topic = $topic->getTitre();
 
 	$manager->update($topic);
+	var_dump($_POST);
 }
 ?>
 
