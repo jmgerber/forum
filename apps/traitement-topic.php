@@ -39,6 +39,13 @@ if (isset($_POST['remove'], $_GET['id']))
 //modification d'un topic
 if (isset($_GET['modify']))
 {
-	//require ('./apps/modify-topic.php');
+	require ('./apps/modify-topic.php');
+}
+
+if (isset($_POST['validate']))
+{
+	
 }
 ?>
+
+
