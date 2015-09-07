@@ -85,6 +85,16 @@ class Categorie
 		return $topic;
 	}
 
+	public function selectByIdAuteur($id)
+	{
+		$request = "SELECT * FROM topics WHERE id_auteur ='".$id."'";
+		$res = mysqli_query($this->link, $request);
+		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
+		{
+			$resultat[] = $topics;
+		}	
+		return $resultat;
+	}
 
 	public function selectAll()
 	{
@@ -96,6 +106,14 @@ class Categorie
 			$resultat[] = $topics;
 		}	
 		return $resultat;
+	}
+
+	public function countTopics($id_user)
+	{
+		$request = "SELECT COUNT(*) FROM topics WHERE id_auteur='".$id_user."'";
+		$res = mysqli_query($this->link, $request);
+		$count = mysqli_fetch_assoc($res)['COUNT(*)'];
+		return $count;
 	}
 }
 ?>

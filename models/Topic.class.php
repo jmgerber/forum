@@ -141,5 +141,13 @@ class Topic
 		$count = mysqli_fetch_assoc($res);
 		return $count;
 	}
+
+	public function countMessages($id_user)
+	{
+		$request = "SELECT COUNT(*) FROM messages WHERE id_auteur='".$id_user."'";
+		$res = mysqli_query($this->link, $request);
+		$count = mysqli_fetch_assoc($res)['COUNT(*)'];
+		return $count;
+	}
 }
 ?>
