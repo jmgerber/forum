@@ -1,5 +1,4 @@
 <?php
-require('tools.php');
 //Variables pour les messages à afficher
 $error= "";
 $success = "";
