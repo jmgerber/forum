@@ -44,7 +44,11 @@ if (isset($_GET['modify']))
 
 if (isset($_POST['validate']))
 {
-	
+	$manager = new Categorie($link);
+	$topic= $manager->selectById($_GET['id']);
+	$id = $topic->getId();
+
+	$manager->update($id);
 }
 ?>
 
