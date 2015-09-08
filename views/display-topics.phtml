@@ -22,11 +22,7 @@
 		if ($_SESSION['statut'] == '1' || $_SESSION['statut'] == '2' || $_SESSION['id'] == $topic->getIdAuteur())
 		{
 			?>
-			<button class="btn btn-primary topic-modify" type="button">
-				<a href="modify-topic/<?=$topic->getId()?>">
-					<i class="fa fa-pencil"></i>
-				</a>
-			</button>
+			<a class="btn btn-primary topic-modify" href="modify-topic/<?=$topic->getId()?>"><i class="fa fa-pencil"></i></a>
 			<?php
 		}
 
