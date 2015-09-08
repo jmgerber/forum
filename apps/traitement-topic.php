@@ -30,10 +30,8 @@ if (isset($_POST['remove'], $_GET['id']))
 	exit;
 }
 //modification d'un topic
-
 if (isset($_POST['validate']))
 {
-
 	$manager = new Categorie($link);
 	$topic = $manager->selectById($_GET['id']);
 	try
