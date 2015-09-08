@@ -1,15 +1,39 @@
 <article class="row">
 	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
-	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
-	
+	<?php
+	if (isset($_SESSION['id']))
+	{
+	?>
+		<div class="col-md-2"><a href="membre/<?=$topic->getIdAuteur()?>"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
+	<?php
+	}
+	else
+	{
+		?><div class="col-md-2"><?=htmlentities($topic->getAuteur()->getLogin())?></div>
+		<?php
+	}
+		?>
 		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
-	<div class="col-md-2">
-		<button class="topic-modify" type="button">
-			<a href="modify-topic/<?=$topic->getId()?>">
-				<i class="fa fa-pencil-square-o"></i>
-			</a>
-		</button>
+	<div class="col-md-1">
+	<?php
+	if (isset($_SESSION['id']))
+	{
+		if ($_SESSION['statut'] == '1' || $_SESSION['statut'] == '2' || $_SESSION['id'] == $topic->getIdAuteur())
+		{
+			?>
+			<button class="topic-modify" type="button">
+				<a href="modify-topic/<?=$topic->getId()?>">
+					<i class="fa fa-pencil-square-o"></i>
+				</a>
+			</button>
+			<?php
+		}
+
+	}
+			?>
+	</div>
+	<div class="col-md-1">
 		<?php require ('./apps/remove-topic.php'); ?>
 	</div>
 </article>
