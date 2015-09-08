@@ -45,11 +45,9 @@ if (isset($_POST['validate']))
 	}
 	if (empty($error))
 	{
-		var_dump($topic);
 		$manager->update($topic);
-		var_dump($topic);
-		// header ('Location: ../home/'.$topic->getCategory()->getCategory());
-		// exit;
+		header ('Location: ../home/'.$topic->getCategory()->getCategory());
+		exit;
 	}
 	
 	
