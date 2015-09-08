@@ -57,7 +57,7 @@ class Categorie
 	public function update($topic)
 	{
 		$titre = mysqli_real_escape_string($this->link, $topic->getTitre());
-		$request ="UPDATE topics SET titre='".$titre."' WHERE id='".$topic->getId()."' AND id_category='".$this->id."'";
+		$request ="UPDATE topics SET titre='".$titre."' WHERE id='".$topic->getId()."' AND id_category='".$topic->getIdCategory()."'";
 		mysqli_query($this->link, $request);
 	}
 	public function select($id)
