@@ -27,6 +27,10 @@ class Topic
 	{
 		return $this->date;
 	}
+	public function getFormatDate($date)
+	{
+		return date('d/m/Y', strtotime($date));
+	}
 	public function getIdAuteur()
 	{
 		return $this->id_auteur;

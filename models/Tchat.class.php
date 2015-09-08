@@ -27,6 +27,10 @@ class Tchat
 	{
 		return $this->date;
 	}
+	public function getFormatDate($date)
+	{
+		return date('d/m/Y', strtotime($date));
+	}
 	public function getId_auteur()
 	{
 		return $this->id_auteur;

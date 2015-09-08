@@ -14,7 +14,7 @@
 	}
 		?>
 		<div class="col-md-2"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
-	<div class="col-md-2"><?=htmlentities($topic->getDate())?></div>
+	<div class="col-md-2"><?=htmlentities($topic->getFormatDate())?></div>
 	<div class="col-md-1">
 	<?php
 	if (isset($_SESSION['id']))
