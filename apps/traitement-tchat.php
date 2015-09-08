@@ -20,8 +20,8 @@ else if (isset($_GET['refresh']))
 		$message = $list[$i];
 		$res .= '<p>
 				<span class="tchat_date">['.$message->getFormatDate().']</span>
-				<span class="tchat_auteur">'.$message->getAuteur()->getLogin().'</span> : 
-				<span class="tchat_message">'.$message->getMessage().'</span>
+				<span class="tchat_auteur">'.htmlentities($message->getAuteur()->getLogin()).'</span> : 
+				<span class="tchat_message">'.htmlentities($message->getMessage()).'</span>
 			</p>';
 		$i++;
 	}
