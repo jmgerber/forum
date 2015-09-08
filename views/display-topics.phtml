@@ -4,16 +4,16 @@
 	if (isset($_SESSION['id']))
 	{
 	?>
-		<div class="col-md-2"><a href="membre/<?=$topic->getIdAuteur()?>"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
+		<div class="col-md-1"><a href="membre/<?=$topic->getIdAuteur()?>"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
 	<?php
 	}
 	else
 	{
-		?><div class="col-md-2"><?=htmlentities($topic->getAuteur()->getLogin())?></div>
+		?><div class="col-md-1"><?=htmlentities($topic->getAuteur()->getLogin())?></div>
 		<?php
 	}
 		?>
-		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
+		<div class="col-md-2"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
 	<div class="col-md-2"><?=htmlentities($topic->getDate())?></div>
 	<div class="col-md-1">
 	<?php
