@@ -5,11 +5,15 @@
 		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
 	<div class="col-md-2">
+<<<<<<< HEAD
+		<button name="modify" class="topic-modify" type="button"><a href="modify-topic/<?=$topic->getId()?>"><i class="fa fa-pencil-square-o"></i></a></button>
+=======
 		<button class="topic-modify" type="button">
 			<a href="topic/<?=$topic->getId()?>?modify">
 				<i class="fa fa-pencil-square-o"></i>
 			</a>
 		</button>
+>>>>>>> 43eacefa18fc7555c64186a8173ec6d64baf6259
 		<?php require ('./apps/remove-topic.php'); ?>
 	</div>
 </article>

@@ -30,19 +30,40 @@ if (isset($_POST['remove'], $_GET['id']))
 	exit;
 }
 //modification d'un topic
+<<<<<<< HEAD
+// if (isset($_GET['modify']))
+// {
+// 	require ('./apps/modify-topic.php');
+// }
+
+=======
 if (isset($_GET['modify']))
 {
 	require ('./apps/modify-topic.php');
 }
+>>>>>>> 43eacefa18fc7555c64186a8173ec6d64baf6259
 if (isset($_POST['validate']))
 {
-	if ($_POST['titreTopic'] != "" )
-	{
+
 	$manager = new Categorie($link);
 	$topic = $manager->selectById($_GET['id']);
-	$topic = $_POST['titreTopic'];
-	var_dump($topic);
-	update ($topic);
+	try
+	{
+		$topic->setTitre($_POST['titreTopic']);
+		
 	}
+	catch (Exception $e)
+	{
+		$error = $e->getMessage();
+	}
+	if (empty($error))
+	{
+		$manager->update($topic);
+		var_dump($topic);
+		// header ('Location: ../home/'.$topic->getCategory()->getCategory());
+		// exit;
+	}
+	
+	
 }
 ?>
