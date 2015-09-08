@@ -14,7 +14,7 @@ if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 	}
 	if (empty($error))
 	{
-		header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$categorie->getCategory().'/'.$topic->getTitre());
+		header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$categorie->getCategory().'/'.urlencode($topic->getTitre()));
 		exit;
 	}
 }

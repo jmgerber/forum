@@ -1,5 +1,5 @@
 <article class="row">
-	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
+	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo urlencode($topic->getTitre())?>"><?=htmlentities($topic->getTitre())?></a></div>
 	<?php
 	if (isset($_SESSION['id']))
 	{
