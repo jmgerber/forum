@@ -1,13 +1,3 @@
-<div class="col-md-12">
-<?php
-	$i=0;
-	while($i<sizeof($list)){
-?>
-		<div class="categories">
-			<a href="home/<?=htmlentities($list[$i]->getCategory())?>"><?=htmlentities($list[$i]->getCategory())?></a>
-		</div>
-<?php
-		$i++;
-	}
-?>
-</div>	
+<div class="categories">
+	<a href="home/<?=htmlentities($list[$i]->getCategory())?>"><?=htmlentities($list[$i]->getCategory())?></a>
+</div>
