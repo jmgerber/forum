@@ -30,10 +30,6 @@ if (isset($_POST['remove'], $_GET['id']))
 	exit;
 }
 //modification d'un topic
-if (isset($_GET['modify']))
-{
-	require ('./apps/modify-topic.php');
-}
 if (isset($_POST['validate']))
 {
 	$manager = new Categorie($link);
@@ -49,6 +45,7 @@ if (isset($_POST['validate']))
 	}
 	if (empty($error))
 	{
+		var_dump($topic);
 		$manager->update($topic);
 		var_dump($topic);
 		// header ('Location: ../home/'.$topic->getCategory()->getCategory());
