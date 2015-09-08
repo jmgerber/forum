@@ -1,35 +1,15 @@
-
-<div class="messages-content">
-	<hr>
-	<div class="row">
-		<div class="col-md-2">
-			<div class="avatar">
-				<img class="thumbnail" src="<?=htmlentities($user->getAvatar())?>" alt="">
-			</div>
-		</div>
-		<div class="col-md-10">
-			<div class="row">
-				<div class="col-md-5">
-					<?php 
-					if(isset($_SESSION['id'])){
-					?>
-						<p><a href='membre/<?=$user->getId()?>'><strong><?=htmlentities($user->getLogin())?></strong></a></p>
-					<?php
-					}
-					else{
-					?>
-						<p><strong><?=htmlentities($user->getLogin())?></strong></p>
-					<?php 
-					}
-					?>
-				</div>
-				<div class="col-md-5">
-					<p><em><?=$date?></em></p>
-				</div>
-			</div>
-			<div class="wrapper-message"><p><?=nl2br(htmlentities($message->getContenu()))?></p></div>
-		</div>
+<article class="row">
+	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
+	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
+	
+		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
+	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
+	<div class="col-md-2">
+		<button class="topic-modify" type="button">
+			<a href="topic/<?=$topic->getId()?>?modify">
+				<i class="fa fa-pencil-square-o"></i>
+			</a>
+		</button>
+		<?php require ('./apps/remove-topic.php'); ?>
 	</div>
-	<?php require('./apps/modify-message.php'); ?>
-	<hr>
-</div>
+</article>
