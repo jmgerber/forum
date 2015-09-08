@@ -54,10 +54,10 @@ class Categorie
 		$request = "DELETE FROM topics WHERE id ='".intval($id)."'";
 		mysqli_query($this->link, $request);
 	}
-	public function update($titre)
+	public function update($topic)
 	{
 		$titre = mysqli_real_escape_string($this->link, $topic->getTitre());
-		$request ="UPDATE topics SET titre='".$titre."', WHERE id='".$topic->getId()."' AND id_category='".$this->id."'";
+		$request ="UPDATE topics SET titre='".$titre."' WHERE id='".$topic->getId()."' AND id_category='".$topic->getIdCategory()."'";
 		mysqli_query($this->link, $request);
 	}
 	public function select($id)
@@ -85,14 +85,29 @@ class Categorie
 		return $topic;
 	}
 
-	public function selectByIdAuteur($id)
+	public function searchTopics($string)
 	{
-		$request = "SELECT * FROM topics WHERE id_auteur ='".$id."'";
+		$string = mysqli_real_escape_string($this->link, $string);
+		$request = "SELECT * FROM topics WHERE titre LIKE '%".$string."%'";
 		$res = mysqli_query($this->link, $request);
+		$resultat = array();
 		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
 		{
 			$resultat[] = $topics;
 		}	
+		return $resultat;
+	}
+	
+	public function selectByIdAuteur($id)
+	{
+		$request = "SELECT * FROM topics WHERE id_auteur ='".$id."'";
+		$res = mysqli_query($this->link, $request);
+		$resultat = array();
+		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
+
+		{
+			$resultat[] = $topics;
+		}
 		return $resultat;
 	}
 
@@ -104,7 +119,7 @@ class Categorie
 		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
 		{
 			$resultat[] = $topics;
-		}	
+		}
 		return $resultat;
 	}
 

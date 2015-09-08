@@ -8,3 +8,4 @@ while (isset($topics[$i]))
 	$i++;
 	require ('./views/profil-topics.phtml');
 }
+?>

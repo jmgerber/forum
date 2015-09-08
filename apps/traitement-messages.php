@@ -16,7 +16,7 @@ if (isset($_POST['insert'], $_POST['contenu'], $_GET['id']))
 	}
 	if (empty($error))
 	{
- 		header('Location: ../home/'.$topic->getCategory()->getCategory().'/'.$topic->getTitre());
+ 		header('Location: ../home/'.$topic->getCategory()->getCategory().'/'.urlencode($topic->getTitre()));
 		exit;
 	}
 }
@@ -33,7 +33,7 @@ else
 		$categorie = $topic->getCategory();
 
 		$categoryName = $topic->getCategory()->getCategory();
-		$topicName = $topic->getTitre();
+		$topicName = urlencode($topic->getTitre());
 	}
 
 

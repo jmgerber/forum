@@ -3,7 +3,7 @@
 		<a href="home/<?=$topic->getCategory()->getCategory()?>" style="color: #AE3635"><strong><?=$topic->getCategory()->getCategory()?></strong></a>
 	</div>
 	<div class="col-md-8">
-		<a href="home/<?=$topic->getCategory()->getCategory()?>/<?=$topic->getTitre()?>"><?=$topic->getTitre()?></a>
+		<a href="home/<?=$topic->getCategory()->getCategory()?>/<?=urlencode($topic->getTitre())?>"><?=$topic->getTitre()?></a>
 	</div>
 </div>
 <hr>

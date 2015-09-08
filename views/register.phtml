@@ -20,16 +20,15 @@
             <label for="password2">Mot de passe (confirmation)</label>
             <input type="password" class="form-control" id="password2" name ="password2" placeholder="Confirmer votre mot de passe">
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="avatar">Avatar</label>
             <input type="text" class="form-control" id="avatar" name="avatar" placeholder="Entrez l'URL de l'avatar">
-        </div>
-        <!-- <div class="form-group">
-            <label for="image">Avatar</label>
-            <input type="hidden" name="MAX_FILE_SIZE" value="1048756">
-            <input type="file" class="form-control" id="image" name="image">
         </div> -->
-
+        <div class="form-group">
+            <label for="image">Avatar</label>
+            <input type="file"id="image" name="image">
+            <input type="hidden" name="MAX_FILE_SIZE" value="10000">
+        </div>
     </fieldset>
     <button type="submit" class="btn btn-primary">Envoyer</button>
 </form>

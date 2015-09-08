@@ -7,7 +7,7 @@ while (isset($messages[$i]))
 {
 	$message = $messages[$i];
 	// $contenu = $messages[$i]->getContenu();
-	$date = $messages[$i]->getDate();
+	$date = $messages[$i]->getFormatDate();
 	$id = $messages[$i]->getId();
 	$id_user = $messages[$i]->getId_auteur();
 	//Récupération des infos user

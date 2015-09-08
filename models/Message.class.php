@@ -28,6 +28,10 @@ class Message
 	{
 		return $this->date;
 	}
+	public function getFormatDate()
+	{
+		return date('d/m/Y', strtotime($this->date));
+	}
 	public function getId_auteur()
 	{
 		return $this->id_auteur;

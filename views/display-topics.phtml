@@ -1,12 +1,36 @@
 <article class="row">
-	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
-	<div class="col-md-2"><a href="membre/<?=$topic->getAuteur()->getId()?>"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
-	
-		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
-	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
-	<div class="col-md-2">
-		<form method="post" action="topic/<?=$topic->getId()?>">
-		<button name="modify" class="topic-modify" type="button"><a href="topic/<?=$topic->getId()?>?modify"><i class="fa fa-pencil-square-o"></i></a></button>
+	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo urlencode($topic->getTitre())?>"><?=htmlentities($topic->getTitre())?></a></div>
+	<?php
+	if (isset($_SESSION['id']))
+	{
+	?>
+		<div class="col-md-1"><a href="membre/<?=$topic->getIdAuteur()?>"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
+	<?php
+	}
+	else
+	{
+		?><div class="col-md-1"><?=htmlentities($topic->getAuteur()->getLogin())?></div>
+		<?php
+	}
+		?>
+		<div class="col-md-2"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
+	<div class="col-md-2"><?=htmlentities($topic->getFormatDate())?></div>
+	<div class="col-md-1">
+	<?php
+	if (isset($_SESSION['id']))
+	{
+		if ($_SESSION['statut'] == '1' || $_SESSION['statut'] == '2' || $_SESSION['id'] == $topic->getIdAuteur())
+		{
+			?>
+			<a class="btn btn-primary topic-modify" href="modify-topic/<?=$topic->getId()?>"><i class="fa fa-pencil"></i></a>
+			<?php
+		}
+
+	}
+			?>
+	</div>
+	<div class="col-md-1">
 		<?php require ('./apps/remove-topic.php'); ?>
 	</div>
 </article>
+<hr />

@@ -1,8 +1,8 @@
 <h2>Modifier votre Topic</h2>
-<form method="post">
+<form method="post" action="topic/<?=$topic->getId()?>">
 	<div class="form-group">
 		<label for="titreTopic">Titre du Topic</label>
-		<input type="text" class="form-control" id="titreTopic" value="<?=htmlentities($topic->getTitre())?>" autofocus>
+		<input name="titreTopic" type="text" class="form-control" id="titreTopic" value="<?=htmlentities($topic->getTitre())?>" autofocus>
 	</div>
 	<button name="validate" type="submit" class="btn btn-default">Valider</button>
 </form>
