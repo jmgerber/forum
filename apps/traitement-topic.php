@@ -30,18 +30,12 @@ if (isset($_POST['remove'], $_GET['id']))
 	exit;
 }
 //modification d'un topic
-<<<<<<< HEAD
-// if (isset($_GET['modify']))
-// {
-// 	require ('./apps/modify-topic.php');
-// }
 
-=======
 if (isset($_GET['modify']))
 {
 	require ('./apps/modify-topic.php');
 }
->>>>>>> 43eacefa18fc7555c64186a8173ec6d64baf6259
+
 if (isset($_POST['validate']))
 {
 
