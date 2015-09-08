@@ -102,9 +102,6 @@ class Categorie
 	{
 		$request = "SELECT * FROM topics WHERE id_auteur ='".$id."'";
 		$res = mysqli_query($this->link, $request);
-
-		while ($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
-
 		$resultat = array();
 		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
 
