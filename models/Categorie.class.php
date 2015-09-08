@@ -54,7 +54,7 @@ class Categorie
 		$request = "DELETE FROM topics WHERE id ='".intval($id)."'";
 		mysqli_query($this->link, $request);
 	}
-	public function update($titre)
+	public function update($topic)
 	{
 		$titre = mysqli_real_escape_string($this->link, $topic->getTitre());
 		$request ="UPDATE topics SET titre='".$titre."', WHERE id='".$topic->getId()."' AND id_category='".$this->id."'";
