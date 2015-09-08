@@ -28,9 +28,9 @@ class Message
 	{
 		return $this->date;
 	}
-	public function getFormatDate($date)
+	public function getFormatDate()
 	{
-		return date('d/m/Y', strtotime($date));
+		return date('d/m/Y', strtotime($this->date));
 	}
 	public function getId_auteur()
 	{
