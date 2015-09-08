@@ -5,7 +5,6 @@ $i=0;
 while (isset($topics[$i]))
 {
 	$topic = $topics[$i];
-	var_dump($topic);
 	$i++;
 	require ('./views/profil-topics.phtml');
 }
