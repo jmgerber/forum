@@ -1,5 +1,5 @@
 <h2>Modifier votre Topic</h2>
-<form method="post">
+<form method="post" action="topic/<?=$topic->getId()?>">
 	<div class="form-group">
 		<label for="titreTopic">Titre du Topic</label>
 		<input name="titreTopic" type="text" class="form-control" id="titreTopic" value="<?=htmlentities($topic->getTitre())?>" autofocus>
