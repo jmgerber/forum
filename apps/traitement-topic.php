@@ -1,4 +1,5 @@
 <?php
+
 //ajout d'un topic
 if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 {
@@ -18,52 +19,41 @@ if (isset($_POST['titreTopic'], $_POST['send'], $_SESSION['id'], $_GET['id']))
 		exit;
 	}
 }
+
 //Supression d'un topic
+
 if (isset($_POST['remove'], $_GET['id']))
 {
 	$manager = new Categorie($link);
 	$topic= $manager->selectById($_GET['id']);
 	$id = $topic->getId();
+
 	$manager->delete($id);
+
+
 	
 	header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$topic->getCategory()->getCategory());
 	exit;
 }
-//modification d'un topic
-<<<<<<< HEAD
-// if (isset($_GET['modify']))
-// {
-// 	require ('./apps/modify-topic.php');
-// }
 
-=======
+//modification d'un topic
 if (isset($_GET['modify']))
 {
 	require ('./apps/modify-topic.php');
 }
->>>>>>> 43eacefa18fc7555c64186a8173ec6d64baf6259
+
 if (isset($_POST['validate']))
 {
-
+	
+	if ($_POST['titreTopic'] != "" )
+	{
 	$manager = new Categorie($link);
 	$topic = $manager->selectById($_GET['id']);
-	try
-	{
-		$topic->setTitre($_POST['titreTopic']);
-		
+	$topic = $_POST['titreTopic'];
+	var_dump($topic);
+	update ($topic);
 	}
-	catch (Exception $e)
-	{
-		$error = $e->getMessage();
-	}
-	if (empty($error))
-	{
-		$manager->update($topic);
-		var_dump($topic);
-		// header ('Location: ../home/'.$topic->getCategory()->getCategory());
-		// exit;
-	}
-	
-	
 }
 ?>
+
+
