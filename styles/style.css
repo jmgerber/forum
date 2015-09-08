@@ -117,3 +117,8 @@ header h1{
 .topic-header div{
 	padding: 5px 10px;
 }
+
+
+.topic-modify a{
+	color: #FFF;
+}
