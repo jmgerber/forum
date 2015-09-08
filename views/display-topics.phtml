@@ -16,18 +16,7 @@
 		<div class="col-md-2"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
 	<div class="col-md-2"><?=htmlentities($topic->getFormatDate())?></div>
 	<div class="col-md-1">
-	<?php
-	if (isset($_SESSION['id']))
-	{
-		if ($_SESSION['statut'] == '1' || $_SESSION['statut'] == '2' || $_SESSION['id'] == $topic->getIdAuteur())
-		{
-			?>
-			<a class="btn btn-primary topic-modify" href="modify-topic/<?=$topic->getId()?>"><i class="fa fa-pencil"></i></a>
-			<?php
-		}
-
-	}
-			?>
+		<?php require ('./apps/display-modify-topic.php'); ?>
 	</div>
 	<div class="col-md-1">
 		<?php require ('./apps/remove-topic.php'); ?>
