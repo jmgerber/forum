@@ -35,8 +35,13 @@ if (isset($_POST['remove'], $_GET['id']))
 	header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$topic->getCategory()->getCategory());
 	exit;
 }
+<<<<<<< HEAD
 
 //modification d'un topic
+=======
+//modification d'un topic
+
+>>>>>>> 4816bcfc0130d0f5409bf0f72c73e2904eb86108
 if (isset($_GET['modify']))
 {
 	require ('./apps/modify-topic.php');
