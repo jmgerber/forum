@@ -3,7 +3,7 @@
 		<p><strong><?=htmlentities($message->getAuteur()->getLogin()); ?></strong></p>
 	</div>
 	<div class="col-md-6">
-		<p><a href="home/<?=$message->getTopic()->getCategory()->getCategory()?>/<?=$message->getTopic()->getTitre()?>"><?=htmlentities($message->getContenu())?></a></p>
+		<p><a href="home/<?=$message->getTopic()->getCategory()->getCategory()?>/<?=urlencode($message->getTopic()->getTitre())?>"><?=htmlentities($message->getContenu())?></a></p>
 	</div>
 	<div class="col-md-2">
 		<form action="gestion/<?=$message->getId()?>" method="post">
