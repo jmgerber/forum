@@ -32,8 +32,8 @@ img{max-width: 100%;}
 {
 	border: 2px solid #333;
 	background: #eee;
-	padding: 5px;
-	height: 400px;
+	padding: 10px;
+	height: 600px;
 	overflow-y: scroll;
 	margin-bottom: 5px;
 }
@@ -53,6 +53,7 @@ img{max-width: 100%;}
 {
 	font-size: 0.9em;
 }
+
 
 /*CSS JEROME*/
 body{

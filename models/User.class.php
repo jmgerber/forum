@@ -108,24 +108,5 @@ class User
 			return false;
 	}
 	
-	// public function addBanni($id)
-	// {
-	// 	$request = "INSERT INTO bannis VALUES(NULL, '".intval($id)."')";
-	// 	$res = mysqli_query($this->link, $request);
-	// 	if($res)
-	// 		return $this->select(mysqli_insert_id($this->link));
-	// 	else
-	// 		throw new Exception("Une erreur est survenue lors de l'ajout");		
-	// }
-
-	// public function deleteBanni($id)
-	// {
-	// 	$request = "DELETE FROM bannis WHERE id='".intval($id)."'";
-	// 	$res = mysqli_query($this->link, $request);
-	// 	if($res)
-	// 		return $this->select(mysqli_insert_id($this->link));
-	// 	else
-	// 		throw new Exception("Une erreur est survenue lors du retrait");		
-	// }
 }
 ?>

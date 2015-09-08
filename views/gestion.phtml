@@ -7,8 +7,22 @@
 			<?php require('./apps/droits.php'); ?>
 		</div>
 		<div>
-			<h3>Gestion des utilisateurs signalés</h3>
-			<?php require('./apps/ban.php'); ?>
+			<h3>Gestion des messages signalés</h3>
+			<div class="wrapper-ban">
+				<div class="row">
+					<div class="col-md-offset-1 col-md-2">
+						<p><strong>Utilisateur</strong></p>
+					</div>
+					<div class="col-md-5">
+						<p>Liste des messages signalés</p>
+					</div>
+					<div class="col-md-4">
+						<p>Signalement (cliquer pour réinitialiser)</p>
+					</div>
+				</div>
+				<hr>
+				<?php require('./apps/signaled-message.php'); ?>
+			</div>
 		</div>
 	</div>
 	<div>
@@ -18,7 +32,7 @@
 				<h3>Ajouter une catégorie :</h3>
 				<form method="post">
 					<div class="form-group">
-						<input autocomplete="off" autofocus type="text" class="form-control" name="nom">
+						<input autocomplete="off" type="text" class="form-control" name="nom">
 					</div>
 					<p class="bg-danger"><?=$error?></p>
 					<button name="create" type="submit" class="btn btn-success">Ajouter</button>

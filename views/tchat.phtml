@@ -1,32 +1,8 @@
 <div class="full-tchat">
-	<div class="tchat">
-	<?php
-	$j=0;
-	while($j<sizeof($messages)){
-	?>
-		<p>
-		<span class="tchat_date">[<?=$messages[$j]->getDate()?>]</span>
-		<span class="tchat_auteur"><?=$messages[$j]->getAuteur()->getLogin()?></span> : 
-		<span class="tchat_message"><?=$messages[$j]->getMessage()?></span>
-		</p>
-		
-	<?php
-		$j++;
-	}
-	?>
+	<div class="new-tchat">
+		<?php require ('./apps/new-tchat.php'); ?>
 	</div>
-	<?php
-	if(isset($_SESSION['id'])){ 
-	?>
-	<form action="tchat" method="POST" id="tchatForm">
-		<div class="input-group">
-			<input type="text" name="message" placeholder="Votre message" id="message" class="form-control">
-			<span class="input-group-btn">
-				<button class="btn btn-default" type="submit" name="submit">Ok</button>
-			</span>
-		</div>
-	</form>
-	<?php
-	}
-	?>
+	<div class="tchat">
+		<?php require ('./apps/display-tchat.php'); ?>
+	</div>
 </div>

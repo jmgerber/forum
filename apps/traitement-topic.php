@@ -25,6 +25,11 @@ if (isset($_POST['remove'], $_GET['id']))
 	$topic= $manager->selectById($_GET['id']);
 	$id = $topic->getId();
 	$manager->delete($id);
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> dc33cdc7df628cd7b906abacf137e45f5db1c4fa
 	
 	header ('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$topic->getCategory()->getCategory());
 	exit;
@@ -34,6 +39,10 @@ if (isset($_GET['modify']))
 {
 	require ('./apps/modify-topic.php');
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> dc33cdc7df628cd7b906abacf137e45f5db1c4fa
 if (isset($_POST['validate']))
 {
 	if ($_POST['titreTopic'] != "" )
@@ -45,4 +54,10 @@ if (isset($_POST['validate']))
 	update ($topic);
 	}
 }
+<<<<<<< HEAD
 ?>
+=======
+?>
+
+
+>>>>>>> dc33cdc7df628cd7b906abacf137e45f5db1c4fa

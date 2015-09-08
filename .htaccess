@@ -17,4 +17,6 @@ RewriteRule ^gestion/(.+)/?$ index.php?page=gestion&id=$1& [L]
 
 RewriteRule ^topic/(.+)/?$ index.php?page=topic&id=$1 [L,QSA]
 
+RewriteRule ^modify-topic/(.+)/?$ index.php?page=modify-topic&id=$1 [L,QSA]
+
 RewriteRule ^membre/([a-zA-Z0-9_\-]+)/?$ index.php?page=membre&id=$1 [L]

@@ -1,0 +1,17 @@
+<div class="row">
+	<div class="col-md-offset-1 col-md-2">
+		<p><strong><?=htmlentities($message->getAuteur()->getLogin()); ?></strong></p>
+	</div>
+	<div class="col-md-6">
+		<p><a href="home/<?=$message->getTopic()->getCategory()->getCategory()?>/<?=$message->getTopic()->getTitre()?>"><?=htmlentities($message->getContenu())?></a></p>
+	</div>
+	<div class="col-md-2">
+		<form action="gestion/<?=$message->getId()?>" method="post">
+			<button type="submit" name="reset" class="btn btn-warning"><?=$message->getSignalement()?></button>
+		</form>
+	</div>
+	
+</div>
+<hr>
+
+

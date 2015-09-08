@@ -1,8 +1,21 @@
-<h2>Profil de <?=$infos->getLogin()?></h2>
+<h2>Profil de <?=$user->getLogin()?></h2>
 <div class="row">
-	<div class="col-md-4">
-		<img src="<?=$infos->getAvatar()?>" alt="" class="img-thumbnail">
-		<p><b>Email</b> : <?=$infos->getEmail()?> </p>
-		<p><b>Statut</b> : <?=$statut?></p>
+	<div class="col-md-2">
+		<img src="<?=$user->getAvatar()?>" alt="" class="img-thumbnail">
+	</div>
+	<div class="col-md-10">
+		<p><strong>Email</strong> : <?=$user->getEmail()?> </p>
+		<p><strong>Statut</strong> : <?=$statut?></p>
+		<p><strong><?=$user->getLogin()?></strong> a publié <?=$topic->countMessages($user->getId())?> messages.</p>
+		<p><strong><?=$user->getLogin()?></strong> a créé <?=$categorie->countTopics($user->getId())?> topics :</p>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-3">
+				<h4><strong>Catégorie</strong></h4>
+			</div>
+			<div class="col-md-8">
+				<h4>Titre du topic</h4>
+			</div>
+		</div>
+		<?php require ('./apps/profil-topics.php') ?>
 	</div>
 </div>

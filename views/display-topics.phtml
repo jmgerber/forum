@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="messages-content">
 	<hr>
 	<div class="row">
@@ -28,6 +29,18 @@
 			</div>
 			<div class="wrapper-message"><p><?=nl2br(htmlentities($message->getContenu()))?></p></div>
 		</div>
+=======
+<article class="row">
+	<div class="col-md-5"><a href="home/<?php echo $topic->getCategory()->getCategory()?>/<?php echo $topic->getTitre()?>"><?=htmlentities($topic->getTitre())?></a></div>
+	<div class="col-md-1"><a href="membre/<?=$topic->getAuteur()->getId()?>"><?=htmlentities($topic->getAuteur()->getLogin())?></a></div>
+	
+		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
+	<div class="col-md-3"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
+	<div class="col-md-2">
+		<form method="post" action="topic/<?=$topic->getId()?>">
+		<button name="modify" class="topic-modify" type="button"><a href="topic/<?=$topic->getId()?>?modify"><i class="fa fa-pencil-square-o"></i></a></button>
+		<?php require ('./apps/remove-topic.php'); ?>
+>>>>>>> dc33cdc7df628cd7b906abacf137e45f5db1c4fa
 	</div>
 	<?php require('./apps/modify-message.php'); ?>
 	<hr>

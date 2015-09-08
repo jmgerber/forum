@@ -32,7 +32,7 @@ class TchatManager
 
 	public function selectLast()
 	{
-		$request = "SELECT * FROM tchat ORDER BY date DESC LIMIT 0, 20";
+		$request = "SELECT * FROM tchat ORDER BY date DESC LIMIT 0, 15";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while ($message = mysqli_fetch_object($res, 'Tchat', array($this->link)))
@@ -40,6 +40,14 @@ class TchatManager
 			$resultat[] = $message;
 		}
 		return $resultat;
+	}
+
+	public function selectLastMessage()
+	{
+		$request = "SELECT * FROM tchat ORDER BY id DESC LIMIT 1";
+		$res = mysqli_query($this->link, $request);
+		$message = mysqli_fetch_object($res, "Tchat", array($this->link));
+		return $message;
 	}
 
 }

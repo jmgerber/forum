@@ -125,7 +125,7 @@ class Topic
 
 	public function selectBySignal()
 	{
-		$request = "SELECT * from messages WHERE signalement > 3 ORDER BY signalement DESC";
+		$request = "SELECT * from messages WHERE signalement > 0 ORDER BY signalement DESC";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while ($message = mysqli_fetch_object($res, "Message", array($this->link)))
@@ -139,6 +139,14 @@ class Topic
 		$request = "SELECT COUNT(*) FROM messages WHERE id_topic = '".$id_topic."'";
 		$res = mysqli_query($this->link, $request);
 		$count = mysqli_fetch_assoc($res);
+		return $count;
+	}
+
+	public function countMessages($id_user)
+	{
+		$request = "SELECT COUNT(*) FROM messages WHERE id_auteur='".$id_user."'";
+		$res = mysqli_query($this->link, $request);
+		$count = mysqli_fetch_assoc($res)['COUNT(*)'];
 		return $count;
 	}
 }
