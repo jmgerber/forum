@@ -5,11 +5,22 @@
 		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
 	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
 	<div class="col-md-2">
-		<button class="topic-modify" type="button">
-			<a href="modify-topic/<?=$topic->getId()?>">
-				<i class="fa fa-pencil-square-o"></i>
-			</a>
-		</button>
+	<?php
+	if (isset($_SESSION['id']))
+	{
+		if ($_SESSION['statut'] == '1' || $_SESSION['statut'] == '2' || $_SESSION['id'] == $topic->getIdAuteur())
+		{
+			?>
+			<button class="topic-modify" type="button">
+				<a href="modify-topic/<?=$topic->getId()?>">
+					<i class="fa fa-pencil-square-o"></i>
+				</a>
+			</button>
+			<?php
+		}
+
+	}
+			?>
 		<?php require ('./apps/remove-topic.php'); ?>
 	</div>
 </article>
