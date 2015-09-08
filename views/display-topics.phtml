@@ -14,7 +14,7 @@
 	}
 		?>
 		<div class="col-md-1"><?=$topic->count($topic->getId())['COUNT(*)']?></div>
-	<div class="col-md-2"><a href="#"><?=htmlentities($topic->getDate())?></a></div>
+	<div class="col-md-2"><?=htmlentities($topic->getDate())?></div>
 	<div class="col-md-1">
 	<?php
 	if (isset($_SESSION['id']))
@@ -22,9 +22,9 @@
 		if ($_SESSION['statut'] == '1' || $_SESSION['statut'] == '2' || $_SESSION['id'] == $topic->getIdAuteur())
 		{
 			?>
-			<button class="topic-modify" type="button">
+			<button class="btn btn-primary topic-modify" type="button">
 				<a href="modify-topic/<?=$topic->getId()?>">
-					<i class="fa fa-pencil-square-o"></i>
+					<i class="fa fa-pencil"></i>
 				</a>
 			</button>
 			<?php
