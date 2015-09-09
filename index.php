@@ -20,7 +20,7 @@ function my_autoloader($className)
 spl_autoload_register('my_autoloader');
 
 //Liste des pages à traiter
-$traitementList = array('login', 'logout', 'register', 'topic', 'messages', 'gestion', 'tchat', 'informations', 'search');
+$traitementList = array('login', 'logout', 'register', 'topic', 'messages', 'gestion', 'tchat', 'informations', 'search', 'membre');
 if (isset($_GET['page']) && in_array($_GET['page'], $traitementList, true))
 {
 	require('./apps/traitement-'.$_GET['page'].'.php');
