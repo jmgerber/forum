@@ -1,0 +1,35 @@
+<div class="messages-content">
+	<hr>
+	<div class="row">
+		<div class="col-md-2">
+			<div class="avatar">
+				<img class="thumbnail" src="<?=htmlentities($user->getAvatar())?>" alt="">
+			</div>
+		</div>
+		<div class="col-md-10">
+			<div class="row">
+				<div class="col-md-5">
+					<p><a href='membre/<?=$user->getId()?>'><strong><?=htmlentities($user->getLogin())?></strong></a></p>
+				</div>
+				<div class="col-md-5">
+					<p><em><?=$message->getFormatDate()?></em></p>
+				</div>
+			</div>
+			<div class="wrapper-message"><p><?=nl2br(htmlentities($message->getContenu()))?></p></div>
+		</div>
+	</div>
+	<div class="messages-modif">
+		<form action="messages/<?=$message->getId()?>" method="post">
+			<div class="row">
+				<div class="col-md-3 col-md-offset-4">
+					<button name="signalement" type="submit" class="btn btn-warning">Signaler ce message</button>
+				</div>
+				<div class="col-md-offset-1 col-md-4">
+					<div class="btn btn-success modify">Modifier</div>
+					<button name="delete" type="submit" class="btn btn-danger">Supprimer</button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<hr>
+</div>
