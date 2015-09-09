@@ -6,6 +6,9 @@ try
 	{
 		if(empty($_POST['login']) || empty($_POST['email']) || empty($_POST['password']) || empty($_POST['password2']) || empty($_FILES['image'])){
 			$error = "Il manque des informations";
+
+			$login = $_POST['login'];
+			$email = $_POST['email'];
 		}
 		else
 		{
@@ -21,12 +24,16 @@ try
 				if(!in_array($extension, $extensions)) //Si l'extension n'est pas dans le tableau
 				{
 				    $error = 'Vous devez uploader un fichier de type png, gif, jpg ou jpeg';
+				    $login = $_POST['login'];
+					$email = $_POST['email'];
 				}
-				if($taille>$taille_maxi)
+				elseif($taille>$taille_maxi)
 				{
 				    $error = 'Le fichier est trop gros.';
+				    $login = $_POST['login'];
+					$email = $_POST['email'];
 				}
-				if($error == "") //S'il n'y a pas d'erreur, on upload
+				elseif($error == "") //S'il n'y a pas d'erreur, on upload
 				{
 				     //On formate le nom du fichier ici...
 			     	$fichier = strtr($fichier, 
@@ -36,9 +43,11 @@ try
 			     	if(move_uploaded_file($_FILES['image']['tmp_name'], $dossier . $fichier) == FALSE) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
 			     	{
 			 			$error = 'Echec de l\'upload !';
+			 			$login = $_POST['login'];
+						$email = $_POST['email'];
 			     	}
 				}
-				if ($error == "")
+				elseif ($error == "")
 				{
  					$user = $manager->create($_POST['login'], $_POST['email'], $_POST['password'], $dossier . $fichier);
 					header('Location: login');
@@ -49,10 +58,16 @@ try
 			else
 			{
 				$error = "Les deux mots de passe ne correspondent pas";
+				$login = $_POST['login'];
+				$email = $_POST['email'];
 			}
 		}
 	}
-
+	else
+	{
+		$login = "";
+		$email = "";
+	}
 }
 catch (Exception $exception)
 {
