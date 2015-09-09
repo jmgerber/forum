@@ -18,7 +18,7 @@ if (isset($_POST['insert'], $_POST['contenu'], $_GET['id']))
 	{
 		// $_SERVER
 		// url du fichier index.php
- 		header('Location: ../home/'.$topic->getCategory()->getCategory().'/'.urlencode($topic->getTitre()));
+ 		header('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$topic->getCategory()->getCategory().'/'.urlencode($topic->getTitre()));
 		exit;
 	}
 }
@@ -64,7 +64,7 @@ else
 	if (isset($_POST['delete']))
 	{
 		$manager->delete($id);
-		header('Location: ../home/'.$categoryName.'/'.$topicName);
+		header('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$categoryName.'/'.$topicName);
 		exit;
 	}
 
@@ -73,7 +73,7 @@ else
 	{
 	 	$message->signalement();
 		$topic->update($message);
-		header('Location: ../home/'.$categoryName.'/'.$topicName);
+		header('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$categoryName.'/'.$topicName);
 		exit;
 	}
 }
