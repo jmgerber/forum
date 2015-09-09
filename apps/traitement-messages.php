@@ -61,7 +61,7 @@ else
 	}
 
 	//Suppression d'un message
-	if (isset($_POST['delete']))
+	elseif (isset($_POST['delete']))
 	{
 		$manager->delete($id);
 		header('Location: '.str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'home/'.$categoryName.'/'.$topicName);
@@ -69,7 +69,7 @@ else
 	}
 
 	//Signalement d'un message
-	if (isset($_POST['signalement']))
+	elseif (isset($_POST['signalement']))
 	{
 	 	$message->signalement();
 		$topic->update($message);
