@@ -113,7 +113,7 @@ class Categorie
 
 	public function selectAll()
 	{
-		$request = "SELECT * FROM topics WHERE id_category='".$this->id."'";
+		$request = "SELECT * FROM topics WHERE id_category='".$this->id."' ORDER BY date DESC";
 		$res = mysqli_query($this->link, $request);
 		$resultat = array();
 		while($topics = mysqli_fetch_object($res, 'Topic', array($this->link)))
