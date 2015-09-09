@@ -27,7 +27,7 @@ if (isset($_GET['page']) && in_array($_GET['page'], $traitementList, true))
 }
 
 //Liste des pages existantes
-$pageList = array('home', 'login', 'register', 'gestion', 'membre', 'informations', 'modify-topic');
+$pageList = array('home', 'login', 'register', 'gestion', 'membre', 'informations', 'modify-topic', 'search');
 $page = 'home';
 
 if (isset($_GET['page']) && in_array($_GET['page'], $pageList, true))
