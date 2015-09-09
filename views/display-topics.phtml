@@ -1,14 +1,14 @@
 <article class="row">
-	<div class="col-md-5"><a href="home/<?=$topic->getCategory()->getCategory()?>/<?=urlencode($topic->getTitre())?>"><?=htmlentities($topic->getTitre())?></a></div>
-	<div class="col-md-1">
+	<div class="col-xs-4"><a href="home/<?=$topic->getCategory()->getCategory()?>/<?=urlencode($topic->getTitre())?>"><?=htmlentities($topic->getTitre())?></a></div>
+	<div class="col-sm-1 col-xs-2">
 		<?php require ('./apps/display-profile.php'); ?>
 	</div>
-		<div class="col-md-2"><?=htmlentities($topic->count($topic->getId())['COUNT(*)'])?></div>
-	<div class="col-md-2"><?=htmlentities($topic->getFormatDate())?></div>
-	<div class="col-md-1">
+		<div class="col-sm-2 hidden-xs"><?=htmlentities($topic->count($topic->getId())['COUNT(*)'])?></div>
+	<div class="col-sm-2 col-xs-3"><?=htmlentities($topic->getFormatDate())?></div>
+	<div class="col-xs-1">
 		<?php require ('./apps/display-modify-topic.php'); ?>
 	</div>
-	<div class="col-md-1">
+	<div class="col-xs-1">
 		<?php require ('./apps/remove-topic.php'); ?>
 	</div>
 </article>
