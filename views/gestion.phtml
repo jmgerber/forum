@@ -1,11 +1,10 @@
 <div class="gestion">
 	<h1>Interface de gestion</h1>
-	<div class="list-group">
-	  	<a href="gestion#gestion-users" class="list-group-item active">Gestion des utilisateurs</a>
-	  	<a href="gestion#gestion-categories" class="list-group-item">Gestion des catégories</a>
+	<div id="gestion-users" class="list-group">
+	  	<a href="gestion#gestion-categories" class="list-group-item active">Aller vers "Gestion des catégories"</a>
 	</div>
 	<div>
-		<h2 id="gestion-users">Gestion des utilisateurs</h2>
+		<h2>Gestion des utilisateurs</h2>
 		<div>
 			<h3>Gestion des droits</h3>
 			<?php require('./apps/droits.php'); ?>
@@ -29,8 +28,11 @@
 			</div>
 		</div>
 	</div>
+	<div id="gestion-categories" class="list-group">
+	  	<a href="gestion#gestion-users" class="list-group-item active">Aller vers "Gestion des utilisateurs"</a>
+	</div>
 	<div>
-		<h2 id="gestion-categories">Gestion des catégories</h2>
+		<h2>Gestion des catégories</h2>
 		<div class="categorie">
 			<div>
 				<h3>Ajouter une catégorie :</h3>
