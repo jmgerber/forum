@@ -4,5 +4,7 @@
 
 	$manager = new Categorie($link);
 	$topic = $manager->selectById($_GET['id']);
-	require ('./views/modify-topic.phtml');
+
+	if (isset($topic))	
+		require ('./views/modify-topic.phtml');
 ?>
