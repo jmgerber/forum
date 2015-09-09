@@ -1,6 +1,7 @@
 <?php
 $i=0;
-while (isset($users[$i]))
+$length = count($users);
+while ($i<$length)
 {
 	$user = $users[$i];
 	if ($user->getStatut() == 0)
