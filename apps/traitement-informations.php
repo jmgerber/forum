@@ -8,10 +8,10 @@ if(isset($_POST['update'])){ // Si on envoi le formulaire
 	}
 	else
 	{
-		$login = mysqli_real_escape_string($link, $_POST['login']);
-		$email = mysqli_real_escape_string($link, $_POST['email']);
-		$avatar = mysqli_real_escape_string($link, $_POST['avatar']);
-		
+		$login = $_POST['login'];
+		$email = $_POST['email'];
+		$avatar = $_POST['avatar'];
+
 		if(isset($_POST['oldPassword'],$_POST['newPassword1'], $_POST['newPassword2']) // Si les champs de mot de passe sont renseignés
 		&& !empty($_POST['oldPassword']) && !empty($_POST['newPassword1']) && !empty($_POST['newPassword2'])) // et s'ils ne sont pas vides
 		{
