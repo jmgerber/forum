@@ -4,6 +4,18 @@ $length = count($topics);
 while ($i<$length)
 {
 	$topic = $topics[$i];
-	require ('./views/display-topics.phtml');
+	if (isset($_SESSION['id']))
+	{
+		if ($_SESSION['statut'] == 1)
+		{
+			require ('./views/display-topics-admin.phtml');
+		}
+		else
+		{
+			require ('./views/display-topics-user.phtml');
+		}
+	}
+	else 
+		require ('./views/display-topics.phtml');
 	$i++;
 }

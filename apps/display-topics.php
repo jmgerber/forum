@@ -21,5 +21,6 @@ while ($i<$length)
 	}
 	else 
 		require ('./views/display-topics.phtml');
-	$i++; }
+	$i++; 
+}
 ?>
