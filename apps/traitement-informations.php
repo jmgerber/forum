@@ -1,5 +1,10 @@
 <?php
 $manager = new UserManager($link);
+if (!isset($_SESSION['id']))
+{
+	header('Location: login');
+	exit;
+}
 $user = $manager->selectById($_SESSION['id']);
 if(isset($_POST['update'])){ // Si on envoi le formulaire
 	if(empty($_POST['login']) || empty($_POST['email']) || empty($_POST['avatar']))

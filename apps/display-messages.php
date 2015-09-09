@@ -6,10 +6,10 @@ $i=0;
 while (isset($messages[$i]))
 {
 	$message = $messages[$i];
-	// $contenu = $messages[$i]->getContenu();
-	$date = $messages[$i]->getFormatDate();
-	$id = $messages[$i]->getId();
-	$id_user = $messages[$i]->getId_auteur();
+	// $contenu = $message->getContenu();
+	$date = $message->getFormatDate();
+	$id = $message->getId();
+	$id_user = $message->getId_auteur();
 	//Récupération des infos user
 	$usermanager = new UserManager($link);
 	$user = $usermanager->selectById($id_user);

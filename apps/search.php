@@ -6,7 +6,7 @@
 	<div class="col-md-1"></div>
 	<div class="col-md-1"></div>
 </div>
-<?php
+<?php // /!\ DAFUK
 $i=0;
 while (isset($topics[$i]))
 {

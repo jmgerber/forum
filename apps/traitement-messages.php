@@ -16,6 +16,8 @@ if (isset($_POST['insert'], $_POST['contenu'], $_GET['id']))
 	}
 	if (empty($error))
 	{
+		// $_SERVER
+		// url du fichier index.php
  		header('Location: ../home/'.$topic->getCategory()->getCategory().'/'.urlencode($topic->getTitre()));
 		exit;
 	}
@@ -52,6 +54,7 @@ else
 		if(empty($error))
 		{
 			$topic->update($message);
+			// /!\ header('Location : ');
 			exit;
 		}
 			

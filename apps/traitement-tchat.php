@@ -18,14 +18,9 @@ else if (isset($_GET['refresh']))
 	while (isset($list[$i]))
 	{
 		$message = $list[$i];
-		$res .= '<p>
-				<span class="tchat_date">['.$message->getFormatDate().']</span>
-				<span class="tchat_auteur">'.htmlentities($message->getAuteur()->getLogin()).'</span> : 
-				<span class="tchat_message">'.htmlentities($message->getMessage()).'</span>
-			</p>';
+		require('views/display-tchat.phtml');
 		$i++;
 	}
-	echo $res;
 	exit;
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 $categoryName = $_GET['category'];
 $topicName = $_GET['topic'];
-
+// /!\ 
 //Récupération de la catégorie
 $manager = new CategorieManager($link);
 $categorie = $manager->selectByName($categoryName);

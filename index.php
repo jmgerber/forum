@@ -1,6 +1,6 @@
 <?php
 //Variables pour les messages à afficher
-$error= "";
+$error = "";
 $success = "";
 
 //Connexion à la base de données

@@ -57,6 +57,7 @@ else
 	//Réinitialiser le signalement d'un message
 	if (isset($_POST['reset'], $_GET['id']))
 	{
+		// /!\
 		$topic = new Topic($link);
 		$message = $topic->selectById($_GET['id']);
 		$message->resetSignalement();
