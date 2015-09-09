@@ -1,13 +1,6 @@
 <?php
 if (isset($_GET['category']))
 {
-	$categoryName = $_GET['category'];
-
-	//Récupération de la catégorie
-	$manager = new CategorieManager($link);
-	$categorie = $manager->selectByName($categoryName);
-
-
-	require ('./views/topic.phtml');
+ 	require ('./views/topic.phtml');
 }
 ?>
