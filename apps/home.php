@@ -5,7 +5,6 @@ else if (isset($_GET['category']))
 	require ('./apps/topic.php');
 else
 {
-	require('./views/home.phtml');
 	require('./apps/display-home.php');
 }
 ?>

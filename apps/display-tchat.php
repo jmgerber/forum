@@ -1,6 +1,7 @@
 <?php
 $i=0;
-while (isset($messages[$i]))
+$length = count($messages);
+while ($i < $length)
 {
 	$message = $messages[$i];
 	require ('./views/display-tchat.phtml');

@@ -3,19 +3,37 @@
 $messages = $topic->selectAll();
 
 $i=0;
-while (isset($messages[$i]))
+$length = count($messages);
+while ($i < $length)
 {
 	$message = $messages[$i];
+<<<<<<< HEAD
 	// $contenu = $message->getContenu();
 	$date = $message->getFormatDate();
 	$id = $message->getId();
 	$id_user = $message->getId_auteur();
+=======
+	$id = $messages[$i]->getId();
+	$id_user = $messages[$i]->getId_auteur();
+>>>>>>> 8d6489b3d32a3fdc57765641bf10ba7852cf9bc4
 	//Récupération des infos user
 	$usermanager = new UserManager($link);
 	$user = $usermanager->selectById($id_user);
 	// $login = $user->getLogin();
 	// $avatar = $user->getAvatar();
-	require ('./views/display-messages.phtml');
+	if (isset($_SESSION['id']))
+	{
+		if ($_SESSION['statut'] == 1 || $_SESSION['statut'] == 2 || $_SESSION['id'] == $message->getId_auteur())
+		{
+			require ('./views/display-messages-admin.phtml');
+		}
+		else
+		{
+			require ('./views/display-messages-user.phtml');
+		}
+	}
+	else 
+		require ('./views/display-messages.phtml');
 	$i++;
 }
 ?>
