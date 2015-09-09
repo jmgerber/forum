@@ -17,7 +17,7 @@ if(isset($_POST['login'], $_POST['password'])){
 				if ($user->isBanned())
 				{
 					//Compte suspendu pour 60 secondes
-					if (((strtotime($user->getBanDate()))+60) < time())
+					if (((strtotime($user->getBanDate()))+300) < time())
 					{
 						$manager->unban($user);
 						$_SESSION['id'] = $user->getId();
@@ -25,11 +25,11 @@ if(isset($_POST['login'], $_POST['password'])){
 						if ($user->getStatut() == 1){
 							$_SESSION['admin'] = TRUE;
 						}
-						header('Location: home');
+						header('Location:' .str_replace('index.php', '', $_SERVER['SCRIPT_NAME']). 'home');
 						exit;
 					}
 					else
-							throw new Exception("Votre compte a été suspendu pour 1 minute.");
+						throw new Exception("Votre compte a été suspendu pour 5 minutes.");
 				}
 				else
 				{
