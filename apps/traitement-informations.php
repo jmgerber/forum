@@ -2,7 +2,7 @@
 $manager = new UserManager($link);
 if (!isset($_SESSION['id']))
 {
-	header('Location: login');
+	header('Location:' .str_replace('index.php', '', $_SERVER['SCRIPT_NAME']). 'login');
 	exit;
 }
 $user = $manager->selectById($_SESSION['id']);

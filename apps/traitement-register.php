@@ -48,7 +48,7 @@ try
 			     	}
 			     	else{
 				     	$user = $manager->create($_POST['login'], $_POST['email'], $_POST['password'], $dossier . $fichier);
-						header('Location: login');
+						header('Location:' .str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'login');
 						exit;
 					}
 				}

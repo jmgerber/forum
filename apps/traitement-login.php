@@ -38,7 +38,7 @@ if(isset($_POST['login'], $_POST['password'])){
 					if ($user->getStatut() == 1){
 						$_SESSION['admin'] = TRUE;
 					}
-					header('Location: home');
+					header('Location:' .str_replace('index.php', '', $_SERVER['SCRIPT_NAME']). 'home');
 					exit;
 				}
 			}
