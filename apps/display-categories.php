@@ -1,6 +1,7 @@
 <?php
 $i = 0;
-while (isset($liste[$i])) 
+$length = count($liste);
+while ($i<$length) 
 {
 	$result = $liste[$i];
 	require ('./views/display-categories.phtml');

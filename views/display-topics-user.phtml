@@ -5,8 +5,5 @@
 	</div>
 		<div class="col-sm-2 hidden-xs"><?=htmlentities($topic->count($topic->getId())['COUNT(*)'])?></div>
 	<div class="col-sm-2 col-xs-3"><?=htmlentities($topic->getFormatDate())?></div>
-	<div class="col-xs-1">
-		<a class="btn btn-primary topic-modify" href="modify-topic/<?=$topic->getId()?>"><i class="fa fa-pencil"></i></a>
-	</div>
 </article>
 <hr />

@@ -14,10 +14,12 @@ while ($i<$length)
 		{
 			require ('./views/display-topics-admin.phtml');
 		}
-		else
+		else if ($_SESSION['statut'] == 2 || $_SESSION['id'] == $topic->getAuteur()->getId())
 		{
-			require ('./views/display-topics-user.phtml');
+			require ('./views/display-topics-modo.phtml');
 		}
+		else
+			require ('./views/display-topics-user.phtml');
 	}
 	else 
 		require ('./views/display-topics.phtml');
