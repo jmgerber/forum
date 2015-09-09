@@ -35,7 +35,7 @@ try
 				}
 				elseif($error == "") //S'il n'y a pas d'erreur, on upload
 				{
-				     //On formate le nom du fichier ici...
+				    //On formate le nom du fichier ici...
 			     	$fichier = strtr($fichier, 
 			          'ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ', 
 			          'AAAAAACEEEEIIIIOOOOOUUUUYaaaaaaceeeeiiiioooooouuuuyy');
@@ -46,14 +46,12 @@ try
 			 			$login = $_POST['login'];
 						$email = $_POST['email'];
 			     	}
+			     	else{
+				     	$user = $manager->create($_POST['login'], $_POST['email'], $_POST['password'], $dossier . $fichier);
+						header('Location: login');
+						exit;
+					}
 				}
-				elseif ($error == "")
-				{
- 					$user = $manager->create($_POST['login'], $_POST['email'], $_POST['password'], $dossier . $fichier);
-					header('Location: login');
-					exit;
-				}
-				
 			}
 			else
 			{
