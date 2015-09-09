@@ -3,13 +3,13 @@
 	<div class="row">
 		<div class="col-md-2">
 			<div class="avatar">
-				<img class="thumbnail" src="<?=htmlentities($user->getAvatar())?>" alt="">
+				<img class="thumbnail" src="<?=htmlentities($message->getAuteur()->getAvatar())?>" alt="">
 			</div>
 		</div>
 		<div class="col-md-10">
 			<div class="row">
 				<div class="col-md-5">
-					<p><a href='membre/<?=$user->getId()?>'><strong><?=htmlentities($user->getLogin())?></strong></a></p>
+					<p><a href='membre/<?=$message->getAuteur()->getId()?>'><strong><?=htmlentities($message->getAuteur()->getLogin())?></strong></a></p>
 				</div>
 				<div class="col-md-5">
 					<p><em><?=$message->getFormatDate()?></em></p>
