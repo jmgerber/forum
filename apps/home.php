@@ -12,7 +12,8 @@ if (isset($_GET['category'], $_GET['topic']))
 	$categorie = $manager->selectByName($categoryName);
 
 	//Récupération du topic
-	$topic = $categorie->selectByName($topicName);
+	if (isset($categorie))
+		$topic = $categorie->selectByName($topicName);
 	if (isset($categorie, $topic))
 	{
 		require ('./apps/messages.php');
