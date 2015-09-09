@@ -1,5 +1,8 @@
 <article class="row">
 	<div class="col-md-5"><a href="home/<?=$topic->getCategory()->getCategory()?>/<?=urlencode($topic->getTitre())?>"><?=htmlentities($topic->getTitre())?></a></div>
+	<div class="col-md-1">
+		<?php require ('./apps/display-profile.php'); ?>
+	</div>
 		<div class="col-md-2"><?=htmlentities($topic->count($topic->getId())['COUNT(*)'])?></div>
 	<div class="col-md-2"><?=htmlentities($topic->getFormatDate())?></div>
 	<div class="col-md-1">
