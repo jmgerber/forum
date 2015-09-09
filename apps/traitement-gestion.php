@@ -21,14 +21,14 @@ else
 	}
 
 	//Suppression d'une catégorie
-	if (isset($_POST['delete'], $_GET['id']))
+	elseif (isset($_POST['delete'], $_GET['id']))
 	{
 		$manager = new CategorieManager($link);
 		$manager->delete($_GET['id']);
 	}
 
 	//Modification d'un catégorie
-	if (isset($_POST['update'], $_POST['nom'], $_GET['id']))
+	elseif (isset($_POST['update'], $_POST['nom'], $_GET['id']))
 	{
 		$manager = new CategorieManager($link);
 		$category = $manager->select($_GET['id']);
@@ -37,7 +37,7 @@ else
 	}
 
 	//Modification des droits des utilisateurs
-	if (isset($_POST['update'], $_POST['statut'], $_GET['id']))
+	elseif (isset($_POST['update'], $_POST['statut'], $_GET['id']))
 	{
 		$manager = new UserManager($link);
 		$user = $manager->selectById($_GET['id']);
@@ -46,7 +46,7 @@ else
 	}
 
 	//Suspendre temporairement un utlisateur
-	if (isset($_POST['bannir'], $_GET['id']))
+	elseif (isset($_POST['bannir'], $_GET['id']))
 	{
  		$manager = new UserManager($link);
 		$user = $manager->selectById($_GET['id']);
@@ -55,7 +55,7 @@ else
 	}
 
 	//Réinitialiser le signalement d'un message
-	if (isset($_POST['reset'], $_GET['id']))
+	elseif (isset($_POST['reset'], $_GET['id']))
 	{
 		// /!\
 		$topic = new Topic($link);
