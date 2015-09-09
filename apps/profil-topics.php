@@ -2,7 +2,8 @@
 $manager = new Categorie($link);
 $topics = $manager->selectByIdAuteur($user->getId());
 $i=0;
-while (isset($topics[$i]))
+$length = count($topics);
+while ($i < $length)
 {
 	$topic = $topics[$i];
 	$i++;

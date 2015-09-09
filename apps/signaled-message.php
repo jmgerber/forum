@@ -6,6 +6,6 @@ while ($i<$length)
 	$message = $messages[$i];
 	$i++;
 	require('./views/signaled-message.phtml');
-	$_SESSION['success'] = "";// /!\
 }
+$_SESSION['success'] = "";
 ?>

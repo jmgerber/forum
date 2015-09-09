@@ -18,11 +18,4 @@ if(isset($_SESSION['id'], $_GET['id'])){
 		require('./views/membre.phtml');
 	}
 }
-else
-{
-	// /!\ DAFUK
-	?>
-	<h2>Vous n'avez pas accès à ces informations hors connexion</h2>
-	<?php
-}
 ?>
