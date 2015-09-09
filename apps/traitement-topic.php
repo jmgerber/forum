@@ -46,7 +46,7 @@ if (isset($_POST['validate']))
 	if (empty($error))
 	{
 		$manager->update($topic);
-		header ('Location: ../home/'.$topic->getCategory()->getCategory());
+		header ('Location:' .str_replace('index.php', '', $_SERVER['SCRIPT_NAME']).'/home/'.$topic->getCategory()->getCategory());
 		exit;
 	}
 	
